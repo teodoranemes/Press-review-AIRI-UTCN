@@ -4,7 +4,7 @@ Automated daily press review platform for the Artificial Intelligence Research
 Institute at the Technical University of Cluj-Napoca (UTCN).
 
 Tracks Romanian press for mentions of the institute, affiliated researchers,
-and research units — no LLM, pure keyword + alias matching.
+and research units.
 
 ---
 
