@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graf Social — AIRI@UTCN</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav class="nav">
+  <a class="nav-brand" href="/">
+    <div class="nav-logo">AI</div>
+    <span class="nav-title">AIRI@UTCN</span>
+  </a>
+  <div class="nav-actions" style="margin-left:auto">
+    <a class="btn btn-pill" href="/">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Revistă
+    </a>
+  </div>
+</nav>
+
+<!-- ── Graph layout ─────────────────────────────────────── -->
+<div class="graph-layout">
+
+  <!-- toolbar -->
+  <div class="graph-bar">
+    <span class="graph-bar-label">Vizualizare</span>
+
+    <button class="legend-pill" data-type="Person" onclick="toggleType('Person',this)">
+      <span class="legend-dot" style="background:#3a6fcd"></span>Persoane
+    </button>
+    <button class="legend-pill" data-type="Article" onclick="toggleType('Article',this)">
+      <span class="legend-dot" style="background:#e07b39"></span>Articole
+    </button>
+    <button class="legend-pill" data-type="Source" onclick="toggleType('Source',this)">
+      <span class="legend-dot" style="background:#34C759"></span>Surse
+    </button>
+    <button class="legend-pill" data-type="ResearchUnit" onclick="toggleType('ResearchUnit',this)">
+      <span class="legend-dot" style="background:#9c59b6"></span>Unități
+    </button>
+
+    <div class="graph-bar-right">
+      <button class="btn btn-pill" id="btn-fit">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+        Centrează
+      </button>
+    </div>
+  </div>
+
+  <!-- canvas -->
+  <div id="cy"></div>
+</div>
+
+<!-- ── Node info panel ──────────────────────────────────── -->
+<div id="node-info">
+  <button class="info-close" id="close-info">×</button>
+  <div id="info-badge" class="info-type-badge"></div>
+  <div id="info-name" class="info-name"></div>
+
+  <div id="info-rows"></div>
+
+  <div class="info-actions" id="info-actions" style="display:none">
+    <a id="info-link" class="btn btn-accent" style="width:100%;justify-content:center" href="#" target="_blank" rel="noopener">
+      Deschide ↗
+    </a>
+  </div>
+</div>
+
+<script>
+/* ── Node/edge style maps ────────────────────────────────── */
+const TYPE_COLOR = {
+  Person:       "#3a6fcd",
+  Article:      "#e07b39",
+  Source:       "#34C759",
+  ResearchUnit: "#9c59b6",
+};
+
+const TYPE_SHAPE = {
+  Person:       "ellipse",
+  Article:      "round-rectangle",
+  Source:       "diamond",
+  ResearchUnit: "hexagon",
+};
+
+const EDGE_COLOR = {
+  MENTIONED_IN:      "#C7D4F5",
+  PUBLISHED_BY:      "#B5E5C2",
+  CO_MENTIONED_WITH: "#F5C87A",
+  AFFILIATED_WITH:   "#DDBBF5",
+};
+
+/* ── Build Cytoscape elements ───────────────────────────── */
+function buildElements(graph) {
+  const nodes = graph.nodes.map(n => ({
+    data: { ...n },
+  }));
+  const edges = graph.edges.map((e, i) => ({
+    data: { id: `e${i}`, ...e },
+  }));
+  return [...nodes, ...edges];
+}
+
+/* ── Style ───────────────────────────────────────────────── */
+const CY_STYLE = [
+  {
+    selector: "node",
+    style: {
+      "background-color": ele => TYPE_COLOR[ele.data("type")] || "#aaa",
+      shape: ele => TYPE_SHAPE[ele.data("type")] || "ellipse",
+      label: "data(label)",
+      "font-size": "9px",
+      "font-family": "'DM Sans', sans-serif",
+      "font-weight": "600",
+      "text-valign": "bottom",
+      "text-margin-y": "5px",
+      "text-wrap": "ellipsis",
+      "text-max-width": "90px",
+      color: "#1D1D1F",
+      "border-width": 2,
+      "border-color": "rgba(255,255,255,0.9)",
+      width: ele => {
+        const t = ele.data("type");
+        if (t === "Person")  return Math.max(20, 12 + (ele.data("total_mentions") || 0) * 4);
+        if (t === "Article") return 14;
+        if (t === "Source")  return 22;
+        return 18;
+      },
+      height: ele => {
+        const t = ele.data("type");
+        if (t === "Person")  return Math.max(20, 12 + (ele.data("total_mentions") || 0) * 4);
+        if (t === "Article") return 14;
+        if (t === "Source")  return 22;
+        return 18;
+      },
+      "transition-property": "background-color, border-color, width, height",
+      "transition-duration": "0.15s",
+    },
+  },
+  {
+    selector: "node:selected",
+    style: {
+      "border-color": "#0071E3",
+      "border-width": 3,
+      "background-color": ele => TYPE_COLOR[ele.data("type")] || "#aaa",
+    },
+  },
+  {
+    selector: "node.faded",
+    style: { opacity: 0.18 },
+  },
+  {
+    selector: "edge",
+    style: {
+      width: ele => Math.min(1.2 + (ele.data("weight") || 1) * 0.6, 5),
+      "line-color": ele => EDGE_COLOR[ele.data("type")] || "#ddd",
+      "target-arrow-shape": ele =>
+        ele.data("type") === "CO_MENTIONED_WITH" ? "none" : "triangle",
+      "target-arrow-color": ele => EDGE_COLOR[ele.data("type")] || "#ddd",
+      "line-style": ele =>
+        ele.data("type") === "CO_MENTIONED_WITH" ? "solid" : "dashed",
+      "curve-style": "bezier",
+      opacity: 0.8,
+    },
+  },
+  {
+    selector: "edge.faded",
+    style: { opacity: 0.06 },
+  },
+];
+
+/* ── Info panel ──────────────────────────────────────────── */
+function showInfo(d) {
+  const panel = document.getElementById("node-info");
+
+  const badge = document.getElementById("info-badge");
+  badge.textContent = d.type;
+  badge.className = `info-type-badge ${d.type}`;
+
+  document.getElementById("info-name").textContent = d.label;
+
+  const rows = [];
+  if (d.role)            rows.push(["Rol", d.role]);
+  if (d.research_unit)   rows.push(["Unitate", d.research_unit]);
+  if (d.total_mentions)  rows.push(["Mențiuni", d.total_mentions]);
+  if (d.last_seen)       rows.push(["Ultima apariție", d.last_seen.slice(0, 10)]);
+  if (d.source)          rows.push(["Sursă", d.source]);
+  if (d.published_date)  rows.push(["Publicat", d.published_date.slice(0, 10)]);
+
+  document.getElementById("info-rows").innerHTML = rows.map(([l, v]) =>
+    `<div class="info-row"><span class="info-row-label">${l}</span><span>${v}</span></div>`
+  ).join("");
+
+  const href = d.profile_url || d.url || "";
+  const actions = document.getElementById("info-actions");
+  if (href) {
+    document.getElementById("info-link").href = href;
+    actions.style.display = "block";
+  } else {
+    actions.style.display = "none";
+  }
+
+  panel.style.display = "block";
+}
+
+document.getElementById("close-info").addEventListener("click", () => {
+  document.getElementById("node-info").style.display = "none";
+});
+
+/* ── Type visibility toggle ─────────────────────────────── */
+let cy;
+const hiddenTypes = new Set();
+
+function toggleType(type, btn) {
+  if (hiddenTypes.has(type)) {
+    hiddenTypes.delete(type);
+    btn.classList.remove("hidden");
+  } else {
+    hiddenTypes.add(type);
+    btn.classList.add("hidden");
+  }
+  applyVisibility();
+}
+
+function applyVisibility() {
+  if (!cy) return;
+  cy.nodes().forEach(n => {
+    const t = n.data("type");
+    n.style("display", hiddenTypes.has(t) ? "none" : "element");
+  });
+  cy.edges().forEach(e => {
+    const v = e.source().style("display") !== "none" && e.target().style("display") !== "none";
+    e.style("display", v ? "element" : "none");
+  });
+}
+
+/* ── Main ────────────────────────────────────────────────── */
+async function init() {
+  let graph;
+  try {
+    const r = await fetch("/api/graph");
+    graph = await r.json();
+  } catch (err) {
+    document.getElementById("cy").innerHTML =
+      `<div class="state-card" style="margin:32px"><p class="state-title">Eroare la încărcarea grafului.</p><p class="state-body">${err}</p></div>`;
+    return;
+  }
+
+  if (!graph.nodes || graph.nodes.length === 0) {
+    document.getElementById("cy").innerHTML = `
+      <div class="state-card" style="margin:32px">
+        <div class="state-icon">🕸️</div>
+        <p class="state-title">Graful este gol</p>
+        <p class="state-body">Niciun articol colectat încă. Apăsați <strong>Colectează</strong> pe pagina principală.</p>
+      </div>`;
+    return;
+  }
+
+  cy = cytoscape({
+    container: document.getElementById("cy"),
+    elements: buildElements(graph),
+    style: CY_STYLE,
+    layout: {
+      name: "cose",
+      animate: true,
+      animationDuration: 700,
+      nodeRepulsion: () => 10000,
+      gravity: 0.2,
+      idealEdgeLength: () => 90,
+      randomize: false,
+    },
+    minZoom: 0.08,
+    maxZoom: 4,
+  });
+
+  // Click node → show info + fade others
+  cy.on("tap", "node", evt => {
+    const node = evt.target;
+    showInfo(node.data());
+
+    // highlight neighborhood
+    cy.elements().addClass("faded");
+    node.removeClass("faded");
+    node.neighborhood().removeClass("faded");
+  });
+
+  // Click background → clear
+  cy.on("tap", evt => {
+    if (evt.target !== cy) return;
+    cy.elements().removeClass("faded");
+    document.getElementById("node-info").style.display = "none";
+  });
+
+  document.getElementById("btn-fit").addEventListener("click", () => {
+    cy.animate({ fit: { padding: 40 }, duration: 400, easing: "ease-out" });
+  });
+}
+
+init();
+</script>
+</body>
+</html>

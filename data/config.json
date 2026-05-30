@@ -1,0 +1,88 @@
+{
+  "keywords": {
+    "institute": [
+      "AIRI",
+      "AIRi",
+      "AIRI@UTCN",
+      "AIRi@UTCN",
+      "Institutul de Cercetare în Inteligență Artificială",
+      "Institutul de Cercetare in Inteligenta Artificiala",
+      "Artificial Intelligence Research Institute",
+      "RO AI Factory",
+      "HRIA",
+      "Hubul Român de Inteligență Artificială",
+      "Hubul Roman de Inteligenta Artificiala"
+    ],
+    "university": [
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Technical University of Cluj-Napoca"
+    ],
+    "research_units": [
+      "Infineon Semiconductor AI Lab",
+      "Software & Hardware 4 AI",
+      "Cybersecurity & Space",
+      "Center for Immersive Technologies in Education",
+      "CulTech"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Stiri de Cluj",
+      "rss_url": "https://www.stiridecluj.ro/rss.xml",
+      "homepage": "https://www.stiridecluj.ro"
+    },
+    {
+      "name": "Monitorul de Cluj",
+      "rss_url": "https://www.monitorulcj.ro/rss/",
+      "homepage": "https://www.monitorulcj.ro"
+    },
+    {
+      "name": "Transilvania Business",
+      "rss_url": "https://www.transilvaniabusiness.ro/feed/",
+      "homepage": "https://www.transilvaniabusiness.ro"
+    },
+    {
+      "name": "Cluj24",
+      "rss_url": "https://cluj24.ro/feed/",
+      "homepage": "https://cluj24.ro"
+    },
+    {
+      "name": "G4Media",
+      "rss_url": "https://www.g4media.ro/feed",
+      "homepage": "https://www.g4media.ro"
+    },
+    {
+      "name": "Edupedu",
+      "rss_url": "https://www.edupedu.ro/feed/",
+      "homepage": "https://www.edupedu.ro"
+    },
+    {
+      "name": "Digi24",
+      "rss_url": "https://www.digi24.ro/rss",
+      "homepage": "https://www.digi24.ro"
+    },
+    {
+      "name": "Ziarul Financiar",
+      "rss_url": "https://www.zf.ro/rss/",
+      "homepage": "https://www.zf.ro"
+    },
+    {
+      "name": "HotNews",
+      "rss_url": "https://www.hotnews.ro/rss",
+      "homepage": "https://www.hotnews.ro"
+    },
+    {
+      "name": "Romania Insider",
+      "rss_url": "https://www.romania-insider.com/feed",
+      "homepage": "https://www.romania-insider.com"
+    }
+  ],
+  "collection": {
+    "poll_interval_minutes": 30,
+    "max_article_age_days": 30,
+    "request_delay_seconds": 1.0,
+    "user_agent": "AIRI-PressReview/1.0 (+https://airi.utcluj.ro)"
+  }
+}

@@ -1,0 +1,18 @@
+services:
+  press-review:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the data directory so articles.json and graph.json persist
+      # between container restarts and can be edited from the host.
+      - ./data:/app/data
+    environment:
+      - DATA_DIR=/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/persons')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
