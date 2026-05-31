@@ -1,164 +1,1816 @@
 [
   {
-    "name": "Ioan Alfred Letia",
-    "role": "Researcher",
-    "research_unit": "Software & Hardware 4 AI",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Ioan-Alfred-Letia",
+    "name": "Alexandru Goia",
+    "role": "staff",
+    "research_unit": "HPC-AI Services",
+    "profile_url": "https://airi.utcluj.ro/people/goia-alexandru",
     "aliases": [
-      "Ioan Alfred Letia",
-      "Ioan Alfred Leția",
-      "I. Letia",
-      "I. Leția",
-      "LETIA, Ioan Alfred",
-      "LEȚIA, Ioan Alfred",
-      "Prof. Dr. Ing. Ioan Alfred Letia",
-      "Prof. Dr. Ing. Ioan Alfred Leția",
-      "Prof. Ioan Alfred Letia",
-      "Dr. Ioan Alfred Letia"
+      "A. Goia",
+      "GOIA, Alexandru",
+      "Goia Alexandru"
+    ]
+  },
+  {
+    "name": "Claudiu Iakkel",
+    "role": "staff",
+    "research_unit": "HPC-AI Services",
+    "profile_url": "https://airi.utcluj.ro/people/iakkel-claudiu",
+    "aliases": [
+      "C. Iakkel",
+      "IAKKEL, Claudiu",
+      "Iakkel Claudiu"
+    ]
+  },
+  {
+    "name": "Lucian Medesan",
+    "role": "staff",
+    "research_unit": "HPC-AI Services",
+    "profile_url": "https://airi.utcluj.ro/people/medesan-lucian",
+    "aliases": [
+      "L. Medesan",
+      "MEDESAN, Lucian",
+      "Medesan Lucian"
+    ]
+  },
+  {
+    "name": "Bogeanu-Popa Alexandru",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Alexandru-BogeanuPopa",
+    "aliases": [
+      "ALEXANDRU, Bogeanu-Popa",
+      "Alexandru Bogeanu-Popa",
+      "B. Alexandru"
+    ]
+  },
+  {
+    "name": "Mircea Gabriel Antonesi",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/MirceaGabriel-Antonesi",
+    "aliases": [
+      "ANTONESI, Mircea Gabriel",
+      "Antonesi Mircea Gabriel",
+      "M. Antonesi",
+      "Mircea Antonesi"
+    ]
+  },
+  {
+    "name": "Eugen Richard Ardelean",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/EugenRichard-Ardelean",
+    "aliases": [
+      "ARDELEAN, Eugen Richard",
+      "Ardelean Eugen Richard",
+      "E. Ardelean",
+      "Eugen Ardelean"
+    ]
+  },
+  {
+    "name": "Stefan Ardeleanu",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/Sefan-Ardelean",
+    "aliases": [
+      "ARDELEANU, Stefan",
+      "Ardeleanu Stefan",
+      "S. Ardeleanu"
+    ]
+  },
+  {
+    "name": "Radu Bacila",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Radu-Bacila",
+    "aliases": [
+      "BACILA, Radu",
+      "Bacila Radu",
+      "R. Bacila"
+    ]
+  },
+  {
+    "name": "Victor Ioan Bâcu",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/VictorIoan-Bacu",
+    "aliases": [
+      "Bacu Victor Ioan",
+      "BÂCU, Victor Ioan",
+      "Bâcu Victor Ioan",
+      "V. Bacu",
+      "V. Bâcu",
+      "Victor Bacu",
+      "Victor Bâcu",
+      "Victor Ioan Bacu"
+    ]
+  },
+  {
+    "name": "Cornel Alexandru Badea",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/badea-cornel-alexandru",
+    "aliases": [
+      "BADEA, Cornel Alexandru",
+      "Badea Cornel Alexandru",
+      "C. Badea",
+      "Cornel Badea"
+    ]
+  },
+  {
+    "name": "Bogdan Balog",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/Bogdan-Balog",
+    "aliases": [
+      "B. Balog",
+      "BALOG, Bogdan",
+      "Balog Bogdan"
+    ]
+  },
+  {
+    "name": "Andrei Cristian Bărăian",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/AndreiCristian-Baraian",
+    "aliases": [
+      "A. Baraian",
+      "A. Bărăian",
+      "Andrei Baraian",
+      "Andrei Bărăian",
+      "Andrei Cristian Baraian",
+      "Baraian Andrei Cristian",
+      "BĂRĂIAN, Andrei Cristian",
+      "Bărăian Andrei Cristian"
+    ]
+  },
+  {
+    "name": "Claudia Georgiana Barbura",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/ClaudiaGeorgiana-Barbura",
+    "aliases": [
+      "BARBURA, Claudia Georgiana",
+      "Barbura Claudia Georgiana",
+      "C. Barbura",
+      "Claudia Barbura"
+    ]
+  },
+  {
+    "name": "Dragoș Bartoș",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/bartos-dragos",
+    "aliases": [
+      "BARTOȘ, Dragoș",
+      "Bartos Dragos",
+      "Bartoș Dragoș",
+      "D. Bartos",
+      "D. Bartoș",
+      "Dragos Bartos"
+    ]
+  },
+  {
+    "name": "Alessandro Battigelli",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/alessandro-battigelli",
+    "aliases": [
+      "A. Battigelli",
+      "BATTIGELLI, Alessandro",
+      "Battigelli Alessandro"
+    ]
+  },
+  {
+    "name": "Radu Beche",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Radu-Beche",
+    "aliases": [
+      "BECHE, Radu",
+      "Beche Radu",
+      "R. Beche"
+    ]
+  },
+  {
+    "name": "Radu Bodi",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/Radu-Bodi",
+    "aliases": [
+      "BODI, Radu",
+      "Bodi Radu",
+      "R. Bodi"
+    ]
+  },
+  {
+    "name": "Adrian Ioan Bojiță",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/AdiBojita",
+    "aliases": [
+      "A. Bojita",
+      "A. Bojiță",
+      "Adrian Bojita",
+      "Adrian Bojiță",
+      "Adrian Ioan Bojita",
+      "BOJIȚĂ, Adrian Ioan",
+      "Bojita Adrian Ioan",
+      "Bojiță Adrian Ioan"
+    ]
+  },
+  {
+    "name": "Sorin Boloș",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/sorin-bolos",
+    "aliases": [
+      "BOLOȘ, Sorin",
+      "Bolos Sorin",
+      "Boloș Sorin",
+      "S. Bolos",
+      "S. Boloș",
+      "Sorin Bolos"
+    ]
+  },
+  {
+    "name": "Răzvan Bolunduț",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-Razvan-Bolundut",
+    "aliases": [
+      "BOLUNDUȚ, Răzvan",
+      "Bolundut Razvan",
+      "Bolunduț Răzvan",
+      "R. Bolundut",
+      "R. Bolunduț",
+      "Razvan Bolundut"
+    ]
+  },
+  {
+    "name": "Robert Botez",
+    "role": "researcher",
+    "research_unit": "Orange 5G Lab",
+    "profile_url": "https://airi.utcluj.ro/people/botez-robert",
+    "aliases": [
+      "BOTEZ, Robert",
+      "Botez Robert",
+      "R. Botez"
+    ]
+  },
+  {
+    "name": "Stelian Brad",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/Stelian-Brad",
+    "aliases": [
+      "BRAD, Stelian",
+      "Brad Stelian",
+      "S. Brad"
+    ]
+  },
+  {
+    "name": "Raluca Didona Brehar",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/RalucaDidona-Brehar",
+    "aliases": [
+      "BREHAR, Raluca Didona",
+      "Brehar Raluca Didona",
+      "R. Brehar",
+      "Raluca Brehar"
+    ]
+  },
+  {
+    "name": "Alexandru Dumitru Buburuzan",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/alexandru-dumitru-buburuzan",
+    "aliases": [
+      "A. Buburuzan",
+      "Alexandru Buburuzan",
+      "BUBURUZAN, Alexandru Dumitru",
+      "Buburuzan Alexandru Dumitru"
+    ]
+  },
+  {
+    "name": "Lucian Bușoniu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Lucian-Busoniu",
+    "aliases": [
+      "BUȘONIU, Lucian",
+      "Busoniu Lucian",
+      "Bușoniu Lucian",
+      "L. Busoniu",
+      "L. Bușoniu",
+      "Lucian Busoniu"
+    ]
+  },
+  {
+    "name": "Rareș Călin Buta",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-buta",
+    "aliases": [
+      "BUTA, Rareș Călin",
+      "Buta Rares Calin",
+      "Buta Rareș Călin",
+      "R. Buta",
+      "Rares Buta",
+      "Rares Calin Buta",
+      "Rareș Buta"
+    ]
+  },
+  {
+    "name": "Bianca Raluca Carbunescu",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/bianca-raluca-carbunescu",
+    "aliases": [
+      "B. Carbunescu",
+      "Bianca Carbunescu",
+      "CARBUNESCU, Bianca Raluca",
+      "Carbunescu Bianca Raluca"
+    ]
+  },
+  {
+    "name": "Blaga Bianca Cerasela",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/BiancaCerasela-Blaga",
+    "aliases": [
+      "B. Cerasela",
+      "Blaga Cerasela",
+      "CERASELA, Blaga Bianca",
+      "Cerasela Blaga Bianca"
+    ]
+  },
+  {
+    "name": "Ioana Cheres",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/ioana-cheres",
+    "aliases": [
+      "CHERES, Ioana",
+      "Cheres Ioana",
+      "I. Cheres"
+    ]
+  },
+  {
+    "name": "Vivian Chiciudean",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Vivian-Chiciudean",
+    "aliases": [
+      "CHICIUDEAN, Vivian",
+      "Chiciudean Vivian",
+      "V. Chiciudean"
+    ]
+  },
+  {
+    "name": "Tudor Cioara",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Tudor-Cioara",
+    "aliases": [
+      "CIOARA, Tudor",
+      "Cioara Tudor",
+      "T. Cioara"
+    ]
+  },
+  {
+    "name": "Aurelia Ciupe",
+    "role": "researcher",
+    "research_unit": "Center for Immersive Technologies in Education",
+    "profile_url": "https://airi.utcluj.ro/people/person-aurelia-ciupe",
+    "aliases": [
+      "A. Ciupe",
+      "CIUPE, Aurelia",
+      "Ciupe Aurelia"
+    ]
+  },
+  {
+    "name": "Cristian Codău",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-codau",
+    "aliases": [
+      "C. Codau",
+      "C. Codău",
+      "CODĂU, Cristian",
+      "Codau Cristian",
+      "Codău Cristian",
+      "Cristian Codau"
+    ]
+  },
+  {
+    "name": "Alexandru Codrean",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/codrean-alexandru",
+    "aliases": [
+      "A. Codrean",
+      "CODREAN, Alexandru",
+      "Codrean Alexandru"
+    ]
+  },
+  {
+    "name": "Adrian Coleșa",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Adrian-Colesa",
+    "aliases": [
+      "A. Colesa",
+      "A. Coleșa",
+      "Adrian Colesa",
+      "COLEȘA, Adrian",
+      "Colesa Adrian",
+      "Coleșa Adrian"
+    ]
+  },
+  {
+    "name": "David Combei",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-combei-david",
+    "aliases": [
+      "COMBEI, David",
+      "Combei David",
+      "D. Combei"
+    ]
+  },
+  {
+    "name": "Radu Comes",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/Radu-Comes",
+    "aliases": [
+      "COMES, Radu",
+      "Comes Radu",
+      "R. Comes"
+    ]
+  },
+  {
+    "name": "Paul Coste",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/paul-coste",
+    "aliases": [
+      "COSTE, Paul",
+      "Coste Paul",
+      "P. Coste"
+    ]
+  },
+  {
+    "name": "István-Attila Császár",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/csaszar-istvan-attila",
+    "aliases": [
+      "CSÁSZÁR, István-Attila",
+      "Csaszar Istvan-Attila",
+      "Császár István-Attila",
+      "I. Csaszar",
+      "I. Császár",
+      "Istvan-Attila Csaszar"
+    ]
+  },
+  {
+    "name": "Radu Gabriel Dănescu",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/RaduGabriel-Danescu",
+    "aliases": [
+      "Danescu Radu Gabriel",
+      "DĂNESCU, Radu Gabriel",
+      "Dănescu Radu Gabriel",
+      "R. Danescu",
+      "R. Dănescu",
+      "Radu Danescu",
+      "Radu Dănescu",
+      "Radu Gabriel Danescu"
+    ]
+  },
+  {
+    "name": "Mihaela Dînșoreanu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Mihaela-Dinsoreanu",
+    "aliases": [
+      "Dinsoreanu Mihaela",
+      "DÎNȘOREANU, Mihaela",
+      "Dînșoreanu Mihaela",
+      "M. Dinsoreanu",
+      "M. Dînșoreanu",
+      "Mihaela Dinsoreanu"
+    ]
+  },
+  {
+    "name": "Petru Dobra",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/dobra-petru",
+    "aliases": [
+      "DOBRA, Petru",
+      "Dobra Petru",
+      "P. Dobra"
+    ]
+  },
+  {
+    "name": "Virgil Dobrota",
+    "role": "researcher",
+    "research_unit": "Orange 5G Lab",
+    "profile_url": "https://airi.utcluj.ro/people/dobrota-virgil",
+    "aliases": [
+      "DOBROTA, Virgil",
+      "Dobrota Virgil",
+      "V. Dobrota"
+    ]
+  },
+  {
+    "name": "Andrei Dumitraş",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Andrei-Dumitras",
+    "aliases": [
+      "A. Dumitras",
+      "A. Dumitraş",
+      "Andrei Dumitras",
+      "DUMITRAŞ, Andrei",
+      "Dumitras Andrei",
+      "Dumitraş Andrei"
+    ]
+  },
+  {
+    "name": "Paul Farago",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/Paul-Farago",
+    "aliases": [
+      "FARAGO, Paul",
+      "Farago Paul",
+      "P. Farago"
+    ]
+  },
+  {
+    "name": "Albert Csaba Fazakas",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/AlbertCsaba-Fazakas",
+    "aliases": [
+      "A. Fazakas",
+      "Albert Fazakas",
+      "FAZAKAS, Albert Csaba",
+      "Fazakas Albert Csaba"
+    ]
+  },
+  {
+    "name": "Cristina Feier",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Cristina-Feier",
+    "aliases": [
+      "C. Feier",
+      "FEIER, Cristina",
+      "Feier Cristina"
+    ]
+  },
+  {
+    "name": "Horaţiu Răzvan Florea",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/HoratiuRazvan-Florea",
+    "aliases": [
+      "FLOREA, Horaţiu Răzvan",
+      "Florea Horatiu Razvan",
+      "Florea Horaţiu Răzvan",
+      "H. Florea",
+      "Horatiu Florea",
+      "Horatiu Razvan Florea",
+      "Horaţiu Florea"
+    ]
+  },
+  {
+    "name": "Daniel Fodorean",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/Daniel-Fodorean",
+    "aliases": [
+      "D. Fodorean",
+      "FODOREAN, Daniel",
+      "Fodorean Daniel"
+    ]
+  },
+  {
+    "name": "Attila Erno Fuzes",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/fuzes-attila-erno",
+    "aliases": [
+      "A. Fuzes",
+      "Attila Fuzes",
+      "FUZES, Attila Erno",
+      "Fuzes Attila Erno"
+    ]
+  },
+  {
+    "name": "Oscar Gal",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Oscar-Gal",
+    "aliases": [
+      "GAL, Oscar",
+      "Gal Oscar",
+      "O. Gal"
+    ]
+  },
+  {
+    "name": "Bogdan-George Gherman",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/BogdanGeorge-Gherman",
+    "aliases": [
+      "B. Gherman",
+      "GHERMAN, Bogdan-George",
+      "Gherman Bogdan-George"
+    ]
+  },
+  {
+    "name": "Ion Augustin Giosan",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/IonAugustin-Giosan",
+    "aliases": [
+      "GIOSAN, Ion Augustin",
+      "Giosan Ion Augustin",
+      "I. Giosan",
+      "Ion Giosan"
+    ]
+  },
+  {
+    "name": "Mircea Giurgiu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Mircea-Giurgiu",
+    "aliases": [
+      "GIURGIU, Mircea",
+      "Giurgiu Mircea",
+      "M. Giurgiu"
+    ]
+  },
+  {
+    "name": "Dorian Gorgan",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Dorian-Gorgan",
+    "aliases": [
+      "D. Gorgan",
+      "GORGAN, Dorian",
+      "Gorgan Dorian"
+    ]
+  },
+  {
+    "name": "Alina Grajdeanu",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/Alina.Grajdeanu",
+    "aliases": [
+      "A. Grajdeanu",
+      "GRAJDEANU, Alina",
+      "Grajdeanu Alina"
+    ]
+  },
+  {
+    "name": "Monika Grezer",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/monika-grezer",
+    "aliases": [
+      "GREZER, Monika",
+      "Grezer Monika",
+      "M. Grezer"
+    ]
+  },
+  {
+    "name": "Adrian Petru Groza",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/AdrianPetru-Groza",
+    "aliases": [
+      "A. Groza",
+      "Adrian Groza",
+      "GROZA, Adrian Petru",
+      "Groza Adrian Petru"
+    ]
+  },
+  {
+    "name": "Robert Groza",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/robert-groza",
+    "aliases": [
+      "GROZA, Robert",
+      "Groza Robert",
+      "R. Groza"
+    ]
+  },
+  {
+    "name": "Sorin Adrian Hintea",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/SorinAdrian-Hintea",
+    "aliases": [
+      "HINTEA, Sorin Adrian",
+      "Hintea Sorin Adrian",
+      "S. Hintea",
+      "Sorin Hintea"
+    ]
+  },
+  {
+    "name": "Anghel Ionuț",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/anghel-ionut",
+    "aliases": [
+      "A. Ionut",
+      "A. Ionuț",
+      "Anghel Ionut",
+      "IONUȚ, Anghel",
+      "Ionut Anghel",
+      "Ionuț Anghel"
+    ]
+  },
+  {
+    "name": "Răzvan Itu",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/Razvan-Itu",
+    "aliases": [
+      "ITU, Răzvan",
+      "Itu Razvan",
+      "Itu Răzvan",
+      "R. Itu",
+      "Razvan Itu"
+    ]
+  },
+  {
+    "name": "Botond Sandor Kirei",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/kirei-botond-sandor",
+    "aliases": [
+      "B. Kirei",
+      "Botond Kirei",
+      "KIREI, Botond Sandor",
+      "Kirei Botond Sandor"
+    ]
+  },
+  {
+    "name": "Robert-Anton Konievic",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/RobertAnton-Konievic",
+    "aliases": [
+      "KONIEVIC, Robert-Anton",
+      "Konievic Robert-Anton",
+      "R. Konievic"
+    ]
+  },
+  {
+    "name": "Istvan Kovacs",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/kovacs-istvan",
+    "aliases": [
+      "I. Kovacs",
+      "KOVACS, Istvan",
+      "Kovacs Istvan"
+    ]
+  },
+  {
+    "name": "Gergő Kovács",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/kovacs-gergo",
+    "aliases": [
+      "G. Kovacs",
+      "G. Kovács",
+      "Gergo Kovacs",
+      "KOVÁCS, Gergő",
+      "Kovacs Gergo",
+      "Kovács Gergő"
+    ]
+  },
+  {
+    "name": "Alex Mihai Lăpuşan",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/lapusan-alex-mihai",
+    "aliases": [
+      "A. Lapusan",
+      "A. Lăpuşan",
+      "Alex Lapusan",
+      "Alex Lăpuşan",
+      "Alex Mihai Lapusan",
+      "Lapusan Alex Mihai",
+      "LĂPUŞAN, Alex Mihai",
+      "Lăpuşan Alex Mihai"
+    ]
+  },
+  {
+    "name": "Alexandru Lecu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/alexandru-lecu",
+    "aliases": [
+      "A. Lecu",
+      "LECU, Alexandru",
+      "Lecu Alexandru"
+    ]
+  },
+  {
+    "name": "Camelia Lemnaru",
+    "role": "researcher",
+    "research_unit": "Center for AI Measurement",
+    "profile_url": "https://airi.utcluj.ro/people/Camelia-Lemnaru",
+    "aliases": [
+      "C. Lemnaru",
+      "LEMNARU, Camelia",
+      "Lemnaru Camelia"
+    ]
+  },
+  {
+    "name": "Zsofia Lendek",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/lendek-zsofia",
+    "aliases": [
+      "LENDEK, Zsofia",
+      "Lendek Zsofia",
+      "Z. Lendek"
+    ]
+  },
+  {
+    "name": "Doru Lese",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/doru-lese",
+    "aliases": [
+      "D. Lese",
+      "LESE, Doru",
+      "Lese Doru"
+    ]
+  },
+  {
+    "name": "Mihaela Macarie",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/macarie-mihaela",
+    "aliases": [
+      "M. Macarie",
+      "MACARIE, Mihaela",
+      "Macarie Mihaela"
+    ]
+  },
+  {
+    "name": "Cosmin Marcu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Cosmin-Marcu",
+    "aliases": [
+      "C. Marcu",
+      "MARCU, Cosmin",
+      "Marcu Cosmin"
+    ]
+  },
+  {
+    "name": "Anca Nicoleta Mărginean",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/AncaNicoleta-Marginean",
+    "aliases": [
+      "A. Marginean",
+      "A. Mărginean",
+      "Anca Marginean",
+      "Anca Mărginean",
+      "Anca Nicoleta Marginean",
+      "Marginean Anca Nicoleta",
+      "MĂRGINEAN, Anca Nicoleta",
+      "Mărginean Anca Nicoleta"
+    ]
+  },
+  {
+    "name": "Tiberiu Marița",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/Tiberiu-Marita",
+    "aliases": [
+      "MARIȚA, Tiberiu",
+      "Marita Tiberiu",
+      "Marița Tiberiu",
+      "T. Marita",
+      "T. Marița",
+      "Tiberiu Marita"
+    ]
+  },
+  {
+    "name": "Vlad Cristian Miclea",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/VladCristian-Miclea",
+    "aliases": [
+      "MICLEA, Vlad Cristian",
+      "Miclea Vlad Cristian",
+      "V. Miclea",
+      "Vlad Miclea"
+    ]
+  },
+  {
+    "name": "Laura Ioana Mihăilă",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/LauraIoana-Mihaila",
+    "aliases": [
+      "L. Mihaila",
+      "L. Mihăilă",
+      "Laura Ioana Mihaila",
+      "Laura Mihaila",
+      "Laura Mihăilă",
+      "MIHĂILĂ, Laura Ioana",
+      "Mihaila Laura Ioana",
+      "Mihăilă Laura Ioana"
+    ]
+  },
+  {
+    "name": "Dan Mitrea",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Dan-Mitrea",
+    "aliases": [
+      "D. Mitrea",
+      "MITREA, Dan",
+      "Mitrea Dan"
+    ]
+  },
+  {
+    "name": "Delia Alexandrina Mitrea",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/mitrea-delia-alexandrina",
+    "aliases": [
+      "D. Mitrea",
+      "Delia Mitrea",
+      "MITREA, Delia Alexandrina",
+      "Mitrea Delia Alexandrina"
+    ]
+  },
+  {
+    "name": "Szilard Molnar",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/molnar-szilard",
+    "aliases": [
+      "MOLNAR, Szilard",
+      "Molnar Szilard",
+      "S. Molnar"
+    ]
+  },
+  {
+    "name": "Călin Munteanu",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/Calin-Munteanu",
+    "aliases": [
+      "C. Munteanu",
+      "Calin Munteanu",
+      "MUNTEANU, Călin",
+      "Munteanu Calin",
+      "Munteanu Călin"
+    ]
+  },
+  {
+    "name": "Mircea Paul Mureșan",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/MirceaPaul-Muresan",
+    "aliases": [
+      "M. Muresan",
+      "M. Mureșan",
+      "MUREȘAN, Mircea Paul",
+      "Mircea Muresan",
+      "Mircea Mureșan",
+      "Mircea Paul Muresan",
+      "Muresan Mircea Paul",
+      "Mureșan Mircea Paul"
+    ]
+  },
+  {
+    "name": "Constantin Ioan Nandra",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/ConstantinIoan-Nandra",
+    "aliases": [
+      "C. Nandra",
+      "Constantin Nandra",
+      "NANDRA, Constantin Ioan",
+      "Nandra Constantin Ioan"
+    ]
+  },
+  {
+    "name": "Anastasios Natsakis",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/natsakis-anastasios",
+    "aliases": [
+      "A. Natsakis",
+      "NATSAKIS, Anastasios",
+      "Natsakis Anastasios"
+    ]
+  },
+  {
+    "name": "Marius Neag",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/neag-marius",
+    "aliases": [
+      "M. Neag",
+      "NEAG, Marius",
+      "Neag Marius"
+    ]
+  },
+  {
+    "name": "Călin Neamțu",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/neamtu-calin",
+    "aliases": [
+      "C. Neamtu",
+      "C. Neamțu",
+      "Calin Neamtu",
+      "NEAMȚU, Călin",
+      "Neamtu Calin",
+      "Neamțu Călin"
+    ]
+  },
+  {
+    "name": "Sergiu Nedevschi",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/Sergiu-Nedevschi",
+    "aliases": [
+      "NEDEVSCHI, Sergiu",
+      "Nedevschi Sergiu",
+      "S. Nedevschi"
+    ]
+  },
+  {
+    "name": "Vlad Andrei Negru",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/negru-vlad-andrei",
+    "aliases": [
+      "NEGRU, Vlad Andrei",
+      "Negru Vlad Andrei",
+      "V. Negru",
+      "Vlad Negru"
+    ]
+  },
+  {
+    "name": "Raluca Nelega",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/nelega-raluca",
+    "aliases": [
+      "NELEGA, Raluca",
+      "Nelega Raluca",
+      "R. Nelega"
+    ]
+  },
+  {
+    "name": "Luiza Dobre Oltean",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/Luiza-Oltean",
+    "aliases": [
+      "L. Oltean",
+      "Luiza Oltean",
+      "OLTEAN, Luiza Dobre",
+      "Oltean Luiza Dobre"
+    ]
+  },
+  {
+    "name": "Cristian Omăt",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/omat-cristian",
+    "aliases": [
+      "C. Omat",
+      "C. Omăt",
+      "Cristian Omat",
+      "OMĂT, Cristian",
+      "Omat Cristian",
+      "Omăt Cristian"
+    ]
+  },
+  {
+    "name": "Andreea-Maria Onaci",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person",
+    "aliases": [
+      "A. Onaci",
+      "ONACI, Andreea-Maria",
+      "Onaci Andreea-Maria"
+    ]
+  },
+  {
+    "name": "Raul OnetOnet",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/Raul-Onet",
+    "aliases": [
+      "ONETONET, Raul",
+      "OnetOnet Raul",
+      "R. OnetOnet"
+    ]
+  },
+  {
+    "name": "Florin Ioan Oniga",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/oniga-florin-ioan",
+    "aliases": [
+      "F. Oniga",
+      "Florin Oniga",
+      "ONIGA, Florin Ioan",
+      "Oniga Florin Ioan"
+    ]
+  },
+  {
+    "name": "Ciprian Oprișa",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Ciprian-Oprisa",
+    "aliases": [
+      "C. Oprisa",
+      "C. Oprișa",
+      "Ciprian Oprisa",
+      "OPRIȘA, Ciprian",
+      "Oprisa Ciprian",
+      "Oprișa Ciprian"
+    ]
+  },
+  {
+    "name": "Bogdan Orza",
+    "role": "researcher",
+    "research_unit": "Center for Immersive Technologies in Education",
+    "profile_url": "https://airi.utcluj.ro/people/person-bogdan-orza",
+    "aliases": [
+      "B. Orza",
+      "ORZA, Bogdan",
+      "Orza Bogdan"
+    ]
+  },
+  {
+    "name": "Aralda Dora Pacurar",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/pacurar-aralda-dora",
+    "aliases": [
+      "A. Pacurar",
+      "Aralda Pacurar",
+      "PACURAR, Aralda Dora",
+      "Pacurar Aralda Dora"
+    ]
+  },
+  {
+    "name": "Tudor Palade",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-palade-tudor",
+    "aliases": [
+      "PALADE, Tudor",
+      "Palade Tudor",
+      "T. Palade"
+    ]
+  },
+  {
+    "name": "Andra Pastrav",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-andra-pastrav",
+    "aliases": [
+      "A. Pastrav",
+      "PASTRAV, Andra",
+      "Pastrav Andra"
+    ]
+  },
+  {
+    "name": "Petruț-Betuel Paul",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/petrut-betuel-paul",
+    "aliases": [
+      "P. Paul",
+      "PAUL, Petruț-Betuel",
+      "Paul Petrut-Betuel",
+      "Paul Petruț-Betuel",
+      "Petrut-Betuel Paul"
+    ]
+  },
+  {
+    "name": "Ioan Radu Peter",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/peter-ioan-radu",
+    "aliases": [
+      "I. Peter",
+      "Ioan Peter",
+      "PETER, Ioan Radu",
+      "Peter Ioan Radu"
+    ]
+  },
+  {
+    "name": "Andra Petrovai",
+    "role": "researcher",
+    "research_unit": "Autonomous Systems",
+    "profile_url": "https://airi.utcluj.ro/people/petrovai-andra",
+    "aliases": [
+      "A. Petrovai",
+      "PETROVAI, Andra",
+      "Petrovai Andra"
+    ]
+  },
+  {
+    "name": "Ștefan Pîrje",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/pirje-stefan",
+    "aliases": [
+      "Pirje Stefan",
+      "PÎRJE, Ștefan",
+      "Pîrje Ștefan",
+      "S. Pirje",
+      "Stefan Pirje",
+      "Ș. Pîrje"
     ]
   },
   {
     "name": "Doina Liana Pisla",
-    "role": "Researcher",
-    "research_unit": "Center for Immersive Technologies in Education",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Doina-Liana-Pisla",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/pisla-doina-liana",
     "aliases": [
-      "Doina Liana Pisla",
-      "Doina Liana Pișla",
-      "Doina Pisla",
-      "Doina Pișla",
       "D. Pisla",
-      "D. Pișla",
+      "Doina Pisla",
       "PISLA, Doina Liana",
-      "PIȘLA, Doina Liana",
-      "Prof. Dr. Ing. Doina Liana Pisla",
-      "Prof. Dr. Ing. Doina Pișla",
-      "Prof. Doina Pisla",
-      "Dr. Doina Pisla"
+      "Pisla Doina Liana"
     ]
   },
   {
-    "name": "Călin Iclănzan",
-    "role": "Researcher",
-    "research_unit": "Software & Hardware 4 AI",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Calin-Iclanzan",
+    "name": "Adrian Pop",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/pop-adrian",
     "aliases": [
-      "Călin Iclănzan",
-      "Calin Iclanzan",
-      "C. Iclănzan",
-      "C. Iclanzan",
-      "ICLĂNZAN, Călin",
-      "ICLANZAN, Calin",
-      "Prof. Dr. Ing. Călin Iclănzan",
-      "Prof. Călin Iclănzan",
-      "Dr. Călin Iclănzan"
+      "A. Pop",
+      "POP, Adrian",
+      "Pop Adrian"
     ]
   },
   {
-    "name": "Radu-Emil Precup",
-    "role": "Researcher",
-    "research_unit": "Software & Hardware 4 AI",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Radu-Emil-Precup",
+    "name": "Aurel Ovidiu Pop",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/pop-aurel-ovidiu",
     "aliases": [
-      "Radu-Emil Precup",
-      "Radu Emil Precup",
-      "R. Precup",
-      "R.-E. Precup",
-      "PRECUP, Radu-Emil",
-      "PRECUP, Radu Emil",
-      "Prof. Dr. Ing. Radu-Emil Precup",
-      "Prof. Radu-Emil Precup",
-      "Dr. Radu-Emil Precup"
+      "A. Pop",
+      "Aurel Pop",
+      "POP, Aurel Ovidiu",
+      "Pop Aurel Ovidiu"
     ]
   },
   {
-    "name": "Szilard Andras Vajda",
-    "role": "Researcher",
+    "name": "Vasile Pop",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/pop-vasile",
+    "aliases": [
+      "POP, Vasile",
+      "Pop Vasile",
+      "V. Pop"
+    ]
+  },
+  {
+    "name": "Raluca Laura Portase",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/portase-raluca-laura",
+    "aliases": [
+      "PORTASE, Raluca Laura",
+      "Portase Raluca Laura",
+      "R. Portase",
+      "Raluca Portase"
+    ]
+  },
+  {
+    "name": "Rodica Potolea",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/potolea-rodica",
+    "aliases": [
+      "POTOLEA, Rodica",
+      "Potolea Rodica",
+      "R. Potolea"
+    ]
+  },
+  {
+    "name": "Andrei Virgil Puiac",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-virgil-puiac",
+    "aliases": [
+      "A. Puiac",
+      "Andrei Puiac",
+      "PUIAC, Andrei Virgil",
+      "Puiac Andrei Virgil"
+    ]
+  },
+  {
+    "name": "Ioan Marius Purcar",
+    "role": "researcher",
     "research_unit": "Infineon Semiconductor AI Lab",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Szilard-Andras-Vajda",
+    "profile_url": "https://airi.utcluj.ro/people/purcar-ioan-marius",
     "aliases": [
-      "Szilard Andras Vajda",
-      "Szilàrd András Vajda",
-      "S. Vajda",
-      "VAJDA, Szilard Andras",
-      "Prof. Dr. Ing. Szilard Vajda",
-      "Prof. Szilard Vajda",
-      "Dr. Szilard Vajda"
+      "I. Purcar",
+      "Ioan Purcar",
+      "PURCAR, Ioan Marius",
+      "Purcar Ioan Marius"
     ]
   },
   {
-    "name": "Mihaela Viorica Baritz",
-    "role": "Researcher",
-    "research_unit": "Center for Immersive Technologies in Education",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Mihaela-Viorica-Baritz",
+    "name": "Emanuel Dumitru Pușchiță",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/EmanuelDumitru-Puschita",
     "aliases": [
-      "Mihaela Viorica Baritz",
-      "Mihaela Baritz",
-      "M. Baritz",
-      "BARITZ, Mihaela Viorica",
-      "Prof. Dr. Ing. Mihaela Baritz",
-      "Prof. Mihaela Baritz",
-      "Dr. Mihaela Baritz"
+      "E. Puschita",
+      "E. Pușchiță",
+      "Emanuel Dumitru Puschita",
+      "Emanuel Puschita",
+      "Emanuel Pușchiță",
+      "PUȘCHIȚĂ, Emanuel Dumitru",
+      "Puschita Emanuel Dumitru",
+      "Pușchiță Emanuel Dumitru"
     ]
   },
   {
-    "name": "Bogdan Ionescu",
-    "role": "Researcher",
-    "research_unit": "Cybersecurity & Space",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Bogdan-Ionescu",
+    "name": "Cristian Andrei Rad",
+    "role": "researcher",
+    "research_unit": "Center for AI Measurement",
+    "profile_url": "https://airi.utcluj.ro/people/person-rad",
     "aliases": [
-      "Bogdan Ionescu",
-      "B. Ionescu",
-      "IONESCU, Bogdan",
-      "Prof. Dr. Ing. Bogdan Ionescu",
-      "Prof. Bogdan Ionescu",
-      "Dr. Bogdan Ionescu"
+      "C. Rad",
+      "Cristian Rad",
+      "RAD, Cristian Andrei",
+      "Rad Cristian Andrei"
     ]
   },
   {
-    "name": "Kalman Szabo",
-    "role": "Researcher",
+    "name": "Rusu-Both Roxana",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/rusu-both-roxana",
+    "aliases": [
+      "R. Roxana",
+      "ROXANA, Rusu-Both",
+      "Roxana Rusu-Both"
+    ]
+  },
+  {
+    "name": "Alecsandra Rusu",
+    "role": "researcher",
     "research_unit": "Infineon Semiconductor AI Lab",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Kalman-Szabo",
+    "profile_url": "https://airi.utcluj.ro/people/AlecsRusu",
     "aliases": [
-      "Kalman Szabo",
-      "Kálmán Szabó",
-      "K. Szabo",
-      "SZABO, Kalman",
-      "SZABÓ, Kálmán",
-      "Prof. Dr. Ing. Kalman Szabo",
-      "Prof. Kalman Szabo",
-      "Dr. Kalman Szabo"
+      "A. Rusu",
+      "RUSU, Alecsandra",
+      "Rusu Alecsandra"
     ]
   },
   {
-    "name": "Maria-Florina Balcan",
-    "role": "External",
+    "name": "Adrian Sabou",
+    "role": "researcher",
     "research_unit": null,
-    "profile_url": "https://airi.utcluj.ro/people/staff/Maria-Florina-Balcan",
+    "profile_url": "https://airi.utcluj.ro/people/sabou-adrian",
     "aliases": [
-      "Maria-Florina Balcan",
-      "Maria Florina Balcan",
-      "M.-F. Balcan",
-      "M. Balcan",
-      "BALCAN, Maria-Florina",
-      "Prof. Dr. Maria-Florina Balcan",
-      "Prof. Maria-Florina Balcan",
-      "Dr. Maria-Florina Balcan"
+      "A. Sabou",
+      "SABOU, Adrian",
+      "Sabou Adrian"
     ]
   },
   {
-    "name": "Liviu Miclea",
-    "role": "Researcher",
-    "research_unit": "Software & Hardware 4 AI",
-    "profile_url": "https://airi.utcluj.ro/people/staff/Liviu-Miclea",
+    "name": "Gheorghe Sebestyen",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-Gheoroghe-Sebestyen",
     "aliases": [
-      "Liviu Miclea",
-      "L. Miclea",
-      "MICLEA, Liviu",
-      "Prof. Dr. Ing. Liviu Miclea",
-      "Prof. Liviu Miclea",
-      "Dr. Liviu Miclea"
+      "G. Sebestyen",
+      "SEBESTYEN, Gheorghe",
+      "Sebestyen Gheorghe"
+    ]
+  },
+  {
+    "name": "Valentin Sita",
+    "role": "researcher",
+    "research_unit": "Robotics and IoT",
+    "profile_url": "https://airi.utcluj.ro/people/sita-valentin",
+    "aliases": [
+      "SITA, Valentin",
+      "Sita Valentin",
+      "V. Sita"
+    ]
+  },
+  {
+    "name": "Radu-Răzvan Slăvescu",
+    "role": "researcher",
+    "research_unit": "Center for AI Measurement",
+    "profile_url": "https://airi.utcluj.ro/people/RaduRazvan-Slavescu",
+    "aliases": [
+      "R. Slavescu",
+      "R. Slăvescu",
+      "Radu-Razvan Slavescu",
+      "SLĂVESCU, Radu-Răzvan",
+      "Slavescu Radu-Razvan",
+      "Slăvescu Radu-Răzvan"
+    ]
+  },
+  {
+    "name": "Teodor Traian Ștefănuț",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/stefanut-teodor-traian",
+    "aliases": [
+      "Stefanut Teodor Traian",
+      "T. Stefanut",
+      "T. Ștefănuț",
+      "Teodor Stefanut",
+      "Teodor Traian Stefanut",
+      "Teodor Ștefănuț",
+      "ȘTEFĂNUȚ, Teodor Traian",
+      "Ștefănuț Teodor Traian"
+    ]
+  },
+  {
+    "name": "Alin Suciu",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-alin-suciu",
+    "aliases": [
+      "A. Suciu",
+      "SUCIU, Alin",
+      "Suciu Alin"
+    ]
+  },
+  {
+    "name": "Vasile Suciu",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Vasile-Suciu",
+    "aliases": [
+      "SUCIU, Vasile",
+      "Suciu Vasile",
+      "V. Suciu"
+    ]
+  },
+  {
+    "name": "Roxana Ramona Szomiu",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/RoxanaRamona-Szomiu",
+    "aliases": [
+      "R. Szomiu",
+      "Roxana Szomiu",
+      "SZOMIU, Roxana Ramona",
+      "Szomiu Roxana Ramona"
+    ]
+  },
+  {
+    "name": "Levente Tamás",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/Levente-Tamas",
+    "aliases": [
+      "L. Tamas",
+      "L. Tamás",
+      "Levente Tamas",
+      "TAMÁS, Levente",
+      "Tamas Levente",
+      "Tamás Levente"
+    ]
+  },
+  {
+    "name": "Zinveliu Lara Taraș",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/taras-zinveliu-lara",
+    "aliases": [
+      "TARAȘ, Zinveliu Lara",
+      "Taras Zinveliu Lara",
+      "Taraș Zinveliu Lara",
+      "Z. Taras",
+      "Z. Taraș",
+      "Zinveliu Lara Taras",
+      "Zinveliu Taras",
+      "Zinveliu Taraș"
+    ]
+  },
+  {
+    "name": "Romulus Terebes",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Romulus-Terebes",
+    "aliases": [
+      "R. Terebes",
+      "TEREBES, Romulus",
+      "Terebes Romulus"
+    ]
+  },
+  {
+    "name": "Andrei Terlea",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Terlea-Andrei",
+    "aliases": [
+      "A. Terlea",
+      "TERLEA, Andrei",
+      "Terlea Andrei"
+    ]
+  },
+  {
+    "name": "Liana Maria Todorean",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/todorean-liana-maria",
+    "aliases": [
+      "L. Todorean",
+      "Liana Todorean",
+      "TODOREAN, Liana Maria",
+      "Todorean Liana Maria"
+    ]
+  },
+  {
+    "name": "Marina Topa",
+    "role": "researcher",
+    "research_unit": "Microelectronics",
+    "profile_url": "https://airi.utcluj.ro/people/Marina-Topa",
+    "aliases": [
+      "M. Topa",
+      "TOPA, Marina",
+      "Topa Marina"
+    ]
+  },
+  {
+    "name": "Marius Horaţiu Totoian",
+    "role": "researcher",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/totoian-marius-horatiu",
+    "aliases": [
+      "M. Totoian",
+      "Marius Horatiu Totoian",
+      "Marius Totoian",
+      "TOTOIAN, Marius Horaţiu",
+      "Totoian Marius Horatiu",
+      "Totoian Marius Horaţiu"
+    ]
+  },
+  {
+    "name": "Paul Tucan",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/tucan-paul",
+    "aliases": [
+      "P. Tucan",
+      "TUCAN, Paul",
+      "Tucan Paul"
+    ]
+  },
+  {
+    "name": "Vlad Spiridon Turcu",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/turcu-vlad-spiridon",
+    "aliases": [
+      "TURCU, Vlad Spiridon",
+      "Turcu Vlad Spiridon",
+      "V. Turcu",
+      "Vlad Turcu"
+    ]
+  },
+  {
+    "name": "Călin Vaida",
+    "role": "researcher",
+    "research_unit": "Robotics for healthcare",
+    "profile_url": "https://airi.utcluj.ro/people/vaida-calin",
+    "aliases": [
+      "C. Vaida",
+      "Calin Vaida",
+      "VAIDA, Călin",
+      "Vaida Calin",
+      "Vaida Călin"
+    ]
+  },
+  {
+    "name": "Cristian Vancea",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/Cristian-Vancea",
+    "aliases": [
+      "C. Vancea",
+      "VANCEA, Cristian",
+      "Vancea Cristian"
+    ]
+  },
+  {
+    "name": "Gheorghe Eduard Vladu",
+    "role": "researcher",
+    "research_unit": "Infineon Semiconductor AI Lab",
+    "profile_url": "https://airi.utcluj.ro/people/vladu-gheorghe-eduard",
+    "aliases": [
+      "G. Vladu",
+      "Gheorghe Vladu",
+      "VLADU, Gheorghe Eduard",
+      "Vladu Gheorghe Eduard"
+    ]
+  },
+  {
+    "name": "Daniel Zinca",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/zinca-daniel",
+    "aliases": [
+      "D. Zinca",
+      "ZINCA, Daniel",
+      "Zinca Daniel"
+    ]
+  },
+  {
+    "name": "Benoit Challand",
+    "role": "visiting",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/benoit-challand",
+    "aliases": [
+      "B. Challand",
+      "CHALLAND, Benoit",
+      "Challand Benoit"
+    ]
+  },
+  {
+    "name": "Haoran Cheng",
+    "role": "visiting",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-haoran",
+    "aliases": [
+      "CHENG, Haoran",
+      "Cheng Haoran",
+      "H. Cheng"
+    ]
+  },
+  {
+    "name": "Alina Donea",
+    "role": "visiting",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/person-alina-donea",
+    "aliases": [
+      "A. Donea",
+      "DONEA, Alina",
+      "Donea Alina"
+    ]
+  },
+  {
+    "name": "Oumaima EL Majdoubi",
+    "role": "visiting",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-Oumaima-Majdoubi",
+    "aliases": [
+      "EL MAJDOUBI , Oumaima",
+      "EL Majdoubi  Oumaima",
+      "O. EL Majdoubi "
+    ]
+  },
+  {
+    "name": "Alexandru-Mihai Gălbază",
+    "role": "student",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/galbaza-alexandru-mihai",
+    "aliases": [
+      "A. Galbaza",
+      "A. Gălbază",
+      "Alexandru-Mihai Galbaza",
+      "Galbaza Alexandru-Mihai",
+      "GĂLBAZĂ, Alexandru-Mihai",
+      "Gălbază Alexandru-Mihai"
+    ]
+  },
+  {
+    "name": "Luca Grindean",
+    "role": "student",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-grindean-luca",
+    "aliases": [
+      "GRINDEAN, Luca",
+      "Grindean Luca",
+      "L. Grindean"
+    ]
+  },
+  {
+    "name": "Bogdan Ilea",
+    "role": "student",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-ilea-bogdan",
+    "aliases": [
+      "B. Ilea",
+      "ILEA, Bogdan",
+      "Ilea Bogdan"
+    ]
+  },
+  {
+    "name": "Alexandru Mihoc",
+    "role": "student",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/alexandru-mihoc",
+    "aliases": [
+      "A. Mihoc",
+      "MIHOC, Alexandru",
+      "Mihoc Alexandru"
+    ]
+  },
+  {
+    "name": "Stefania-Cristina Mozacu",
+    "role": "student",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/stefania-cristina-mozacu",
+    "aliases": [
+      "MOZACU, Stefania-Cristina",
+      "Mozacu Stefania-Cristina",
+      "S. Mozacu"
+    ]
+  },
+  {
+    "name": "Lucia-Antonia Szecsi",
+    "role": "student",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people/lucia-antonia-szecsi",
+    "aliases": [
+      "L. Szecsi",
+      "SZECSI, Lucia-Antonia",
+      "Szecsi Lucia-Antonia"
+    ]
+  },
+  {
+    "name": "Georgiana Copil",
+    "role": "external",
+    "research_unit": "Trusted AI",
+    "profile_url": "https://airi.utcluj.ro/people/person-georgiana-copil",
+    "aliases": [
+      "COPIL, Georgiana",
+      "Copil Georgiana",
+      "G. Copil"
+    ]
+  },
+  {
+    "name": "Mihai Razvan",
+    "role": "external",
+    "research_unit": "Orange 5G Lab",
+    "profile_url": "https://airi.utcluj.ro/people/person-razvan-mihai",
+    "aliases": [
+      "M. Razvan",
+      "RAZVAN, Mihai",
+      "Razvan Mihai"
+    ]
+  },
+  {
+    "name": "Cristian Patachia Sultanoiu",
+    "role": "external",
+    "research_unit": "Orange 5G Lab",
+    "profile_url": "https://airi.utcluj.ro/people/cristian-patachia-sultanoiu",
+    "aliases": [
+      "C. Sultanoiu",
+      "Cristian Sultanoiu",
+      "SULTANOIU, Cristian Patachia",
+      "Sultanoiu Cristian Patachia"
+    ]
+  },
+  {
+    "name": "Vasile Topa",
+    "role": "researcher",
+    "research_unit": null,
+    "profile_url": "https://airi.utcluj.ro/people",
+    "aliases": [
+      "V. Topa",
+      "TOPA, Vasile",
+      "Topa Vasile"
     ]
   }
 ]

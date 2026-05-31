@@ -17,6 +17,9 @@ htmlcov/
 # Generated data (persisted at runtime, not source-controlled)
 data/graph.json
 
+# Config contains API keys — do not commit
+data/config.json
+
 # OS
 .DS_Store
 Thumbs.db

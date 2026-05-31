@@ -17,6 +17,7 @@ PEOPLE_PATH = DATA_DIR / "people.json"
 PEOPLE_SAMPLE_PATH = DATA_DIR / "people.sample.json"
 ARTICLES_PATH = DATA_DIR / "articles.json"
 GRAPH_PATH = DATA_DIR / "graph.json"
+EXTRACTED_PERSONS_PATH = DATA_DIR / "extracted_persons.json"
 
 
 class CollectionConfig(BaseModel):
@@ -38,10 +39,17 @@ class KeywordsConfig(BaseModel):
     research_units: list[str] = Field(default_factory=list)
 
 
+class GoogleCSEConfig(BaseModel):
+    api_key: str = ""
+    cx: str = ""
+    serpapi_key: str = ""
+
+
 class AppConfig(BaseModel):
     keywords: KeywordsConfig
     sources: list[SourceConfig] = Field(default_factory=list)
     collection: CollectionConfig = Field(default_factory=CollectionConfig)
+    google_cse: GoogleCSEConfig = Field(default_factory=GoogleCSEConfig)
 
 
 def load_config() -> AppConfig:

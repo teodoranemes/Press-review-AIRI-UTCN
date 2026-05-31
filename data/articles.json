@@ -1,95 +1,229 @@
 [
   {
-    "id": "real0001",
+    "id": "fd5e6d0ad3aa3f81",
+    "title": "Universitatea Tehnică din Cluj-Napoca, partener strategic al primei AI Factory din România – un proiect EuroHPC",
+    "url": "https://cluj24.ro/universitatea-tehnica-din-cluj-napoca-partener-strategic-al-primei-ai-factory-din-romania-un-proiect-eurohpc-266299.html",
+    "source": "cluj24.ro",
+    "published_date": "2025-10-14T08:30:35+00:00",
+    "snippet": "Universitatea Tehnică din Cluj-Napoca (UTCN) anunță implicarea sa ca partener în RO AI Factory, prima infrastructură națională dedicată inteligenței artificiale. Proiectul este coordonat de ICI București și Universitatea POLITEHNICA din București (UPB). RO AI Factory va fi implementată la UTCN prin ",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "Artificial Intelligence Research Institute",
+      "RO AI Factory",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj"
+    ],
+    "matched_persons": [
+      "Adrian Petru Groza"
+    ]
+  },
+  {
+    "id": "9ff34aa8444f9e3c",
+    "title": "Universitatea Tehnică din Cluj-Napoca va fi partener în prima infrastructură națională dedicată inteligenței artificiale din țară - RO AI Factory!",
+    "url": "https://www.stiridecluj.ro/educatie/universitatea-tehnica-din-cluj-napoca-va-fi-partener-in-prima-infrastructura-nationala-dedicata-inteligentei-artificiale-din-tara-ro-ai-factory",
+    "source": "stiridecluj.ro",
+    "published_date": "2025-10-14T07:20:00+00:00",
+    "snippet": "România face un pas uriaș în direcția transformării digitale și a cercetării de vârf prin lansarea RO AI Factory , prima infrastructură națională dedicată inteligenței artificiale (AI) . Proiectul este coordonat de Institutul Național de Cercetare-Dezvoltare în Informatică - ICI București și Univers",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "Artificial Intelligence Research Institute",
+      "RO AI Factory",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "d93af39723cd99d1",
     "title": "Universitatea Tehnică din Cluj-Napoca, partener strategic al primei AI Factory din România – un proiect EuroHPC",
     "url": "https://www.monitorulcj.ro/educatie/132640-universitatea-tehnica-din-cluj-napoca-partener-strategic-al-primei-ai-factory-din-romania-un-proiect-eurohpc",
-    "source": "Monitorul de Cluj",
-    "published_date": "2025-10-14T09:52:45+00:00",
-    "snippet": "RO AI Factory va fi implementată la UTCN prin AIRi - Artificial Intelligence Research Institute. Noul institut este finanțat din fonduri proprii și va fi inaugurat la începutul anului 2026. Pentru noi e important să ne aliniem la know-how-ul existent la nivel european în ceea ce privește infrastructura de AI.",
+    "source": "monitorulcj.ro",
+    "published_date": "2025-10-14T09:52:45",
+    "snippet": "RO AI Factory va fi implementată la UTCN prin AIRi - Artificial Intelligence Research Institute . Noul institut este finanțat din fonduri proprii și va fi inaugurat la începutul anului 2026. „Pentru noi e important să ne aliniem la know-how-ul existent la nivel european în ceea ce privește infrastru",
     "matched_keywords": [
       "AIRI",
-      "RO AI Factory",
+      "AIRi",
       "Artificial Intelligence Research Institute",
-      "UTCN"
-    ],
-    "matched_persons": []
-  },
-  {
-    "id": "real0002",
-    "title": "Institut de Cercetare în Inteligență Artificială la Universitatea Tehnică din Cluj-Napoca",
-    "url": "https://www.transilvaniabusiness.ro/2025/10/31/institut-de-cercetare-in-inteligenta-artificiala-la-universitatea-tehnica-din-cluj-napoca/",
-    "source": "Transilvania Business",
-    "published_date": "2025-10-31T10:00:00+00:00",
-    "snippet": "Universitatea Tehnică din Cluj-Napoca (UTCN) face un pas decisiv în direcția consolidării cercetării și inovării în România, prin înființarea Institutului de Cercetare în Inteligență Artificială (AIRi). Această inițiativă va transforma municipiul Cluj-Napoca într-un centru de excelență în domeniul AI.",
-    "matched_keywords": [
-      "AIRI",
-      "Institutul de Cercetare în Inteligență Artificială",
-      "UTCN"
-    ],
-    "matched_persons": []
-  },
-  {
-    "id": "real0003",
-    "title": "Universitatea Tehnică din Cluj-Napoca, partener strategic al primei AI Factory din România",
-    "url": "https://cluj24.ro/universitatea-tehnica-din-cluj-napoca-partener-strategic-al-primei-ai-factory-din-romania-un-proiect-eurohpc-266299.html",
-    "source": "Cluj24",
-    "published_date": "2025-10-14T08:00:00+00:00",
-    "snippet": "UTCN va contribui cu infrastructura AIRi la proiectul RO AI Factory, prima rețea națională dedicată inteligenței artificiale din România, finanțată prin programul EuroHPC al Uniunii Europene.",
-    "matched_keywords": [
-      "AIRI",
       "RO AI Factory",
-      "UTCN"
-    ],
-    "matched_persons": []
-  },
-  {
-    "id": "real0004",
-    "title": "România lansează RO AI Factory: UTCN, partener în prima infrastructură națională de AI",
-    "url": "https://www.stiridecluj.ro/educatie/universitatea-tehnica-din-cluj-napoca-va-fi-partener-in-prima-infrastructura-nationala-dedicata-inteligentei-artificiale-din-tara-ro-ai-factory",
-    "source": "Stiri de Cluj",
-    "published_date": "2025-10-14T07:20:00+00:00",
-    "snippet": "România face un pas uriaș în direcția transformării digitale și a cercetării de vârf prin lansarea RO AI Factory, prima infrastructură națională dedicată inteligenței artificiale. Proiectul este coordonat de ICI București și Universitatea Tehnică din Cluj-Napoca.",
-    "matched_keywords": [
-      "RO AI Factory",
-      "UTCN"
-    ],
-    "matched_persons": []
-  },
-  {
-    "id": "real0005",
-    "title": "UTCN și UBB se implică în Hubul Român de Inteligență Artificială",
-    "url": "https://www.transilvaniabusiness.ro/2025/03/13/utcn-si-ubb-se-implica-in-hubul-roman-de-inteligenta-artificiala/",
-    "source": "Transilvania Business",
-    "published_date": "2025-03-13T09:00:00+00:00",
-    "snippet": "Universitatea Tehnică din Cluj-Napoca semnează contractul de finanțare pentru Hubul Român de Inteligență Artificială (HRIA), proiect de anvergură care va fi implementat sub coordonarea UTCN și va conecta cercetătorii români din domeniul AI cu rețeaua europeană.",
-    "matched_keywords": [
-      "HRIA",
-      "Hubul Român de Inteligență Artificială",
-      "UTCN"
-    ],
-    "matched_persons": []
-  },
-  {
-    "id": "real0006",
-    "title": "UTCN va digitaliza patrimoniul cultural al României cu roboți, AI și scanare 3D",
-    "url": "https://www.stiridecluj.ro/educatie/utcn-cluj-va-digitaliza-patrimoniul-cultural-al-romaniei-cu-roboti-inteligenta-artificiala-si-scanare-3d-dupa-ce-a-semnat-un-contract-major-de-finantare",
-    "source": "Stiri de Cluj",
-    "published_date": "2026-03-13T07:13:00+00:00",
-    "snippet": "Universitatea Tehnică din Cluj-Napoca a semnat contractul de finanțare pentru proiectul CulTech – Centrul de Excelență Digitală pentru Patrimoniul Cultural. Proiectul implică utilizarea roboților, inteligenței artificiale și scanării 3D pentru digitalizarea patrimoniului românesc.",
-    "matched_keywords": [
       "UTCN",
-      "CulTech"
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj"
     ],
-    "matched_persons": []
+    "matched_persons": [
+      "Adrian Petru Groza"
+    ]
   },
   {
     "id": "f4e6cc968e24ab71",
-    "title": "Institut de Cercetare în Inteligență Artificială la Universitatea Tehnică din Cluj-Napoca",
+    "title": "Institut de Cercetare în Inteligență Artificială la Universitatea Tehnică din Cluj-Napoca - Transilvania Business - Sursa ta de informatii economice",
     "url": "https://www.transilvaniabusiness.ro/2025/10/31/institut-de-cercetare-in-inteligenta-artificiala-la-universitatea-tehnica-din-cluj-napoca/",
-    "source": "Transilvania Business",
+    "source": "transilvaniabusiness.ro",
     "published_date": "2025-10-30T21:40:01+00:00",
-    "snippet": "Universitatea Tehnică din Cluj-Napoca (UTCN) face un pas decisiv în direcția consolidării cercetării și inovării în România, prin înființarea Institutului de Cercetare în Inteligență Artificială.",
-    "matched_keywords": [],
+    "snippet": "Universitatea Tehnică din Cluj-Napoca (UTCN) face un pas decisiv în direcția consolidării cercetării și inovării în România, prin înființarea Institutului de Cercetare în Inteligență Artificială (AIRi). Această inițiativă va transforma municipiul Cluj-Napoca într-un pol regional de excelență în dome",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "8fae4bbfdb884b6d",
+    "title": "Ciolacu: Institutul de Cercetare în Inteligență Artificială al UTCN, primul cu un parteneriat derulat cu companii importante la nivel mondial/Clujul va deveni un hub al inteligenței artificiale - caleaeuropeana.ro",
+    "url": "https://www.caleaeuropeana.ro/ciolacu-institutul-de-cercetare-in-inteligenta-artificiala-al-utcn-primul-cu-un-parteneriat-derulat-cu-companii-importante-la-nivel-mondial-clujul-va-deveni-un-hub-al-inteligentei-artificiale/",
+    "source": "caleaeuropeana.ro",
+    "published_date": "2024-09-21T11:45:53+00:00",
+    "snippet": "Institutul de Cercetare în Inteligență Artificială din cadrul Universității Tehnice din Cluj-Napoca este primul institut de cercetare cu un parteneriat derulat cu companii de talie mondială, care va transforma Clujul într-un „hub al inteligenței artificiale”, a declarat, sâmbătă, premierul Marcel Ci",
+    "matched_keywords": [
+      "Institutul de Cercetare în Inteligență Artificială",
+      "Institutul de Cercetare in Inteligenta Artificiala",
+      "UTCN"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "0444db81296a1243",
+    "title": "AIRi@UTCN Accelerator al cercetarii inovarii si competitivitatii  regionale si nationale",
+    "url": "https://www.marketwatch.ro/articol/18912/AIRi@UTCN_Accelerator_al_cercetarii_inovarii_si_competitivitatii__regionale_si_nationale/",
+    "source": "marketwatch.ro",
+    "published_date": "2025-12-22T00:00:00+00:00",
+    "snippet": "UVT, catalizator al mișcării academice timișorene, își urmează calea spre cunoașterea aprofundată și trecerea către tehnologiile viitorului și ale noilor generațiiUniversitatea de Vest din Timișoara este astăzi cea mai dinamică instituție de învățământ superior din România, o universitate care se...",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "AIRI@UTCN",
+      "AIRi@UTCN",
+      "UTCN"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "c7c4469e619b264a",
+    "title": "Ce planuri are UTCN Cluj cu una dintre cele mai mari universități din India: Studenți trimiși peste ocean, cercetare comună și proiecte de inovare",
+    "url": "https://www.stiridecluj.ro/educatie/ce-planuri-are-utcn-cluj-cu-una-dintre-cele-mai-mari-universitati-din-india-studenti-trimisi-peste-ocean-cercetare-comuna-si-proiecte-de-inovare",
+    "source": "Stiri de Cluj",
+    "published_date": "2026-04-08T13:19:00+00:00",
+    "snippet": "O delegație de la Kalinga Institute of Industrial Technology (KIIT) din India a vizitat recent Universitatea Tehnică din Cluj-Napoca, într-o întâlnire dedicată extinderii colaborărilor academice internaționale. Dr. Vikas Kumar Sabata, Joint Director în cadrul Biroului de Relații Internaționale al KI",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "AIRI@UTCN",
+      "AIRi@UTCN",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "7dc18bcb5b3fd036",
+    "title": "UTCN Cluj și Coreea de Sud pun la punct schimburi de studenți, programe cu industria și cercetare comună: Ce iese din parteneriatul cu DKU",
+    "url": "https://www.stiridecluj.ro/educatie/utcn-cluj-si-coreea-de-sud-pun-la-punct-schimburi-de-studenti-programe-cu-industria-si-cercetare-comuna-ce-iese-din-parteneriatul-cu-dku",
+    "source": "stiridecluj.ro",
+    "published_date": "2026-04-22T11:44:00+00:00",
+    "snippet": "Un cadru didactic de la Universitatea Dankook din Seul a vizitat recent Universitatea Tehnică din Cluj-Napoca în cadrul programului Erasmus. La finalul vizitei, cele două universități au semnat un nou protocol de colaborare. Prof. dr. Jootae Kim, de la Facultatea de Afaceri și Economie a Universităț",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "3a1111de8f33c205",
+    "title": "Universitate din Cluj partener în prima infrastructură națională pentru inteligența artificială, deschide sediu anul viitor",
+    "url": "https://actualdecluj.ro/universitate-din-cluj-partener-in-prima-infrastructura-nationala-pentru-inteligenta-artificiala-deschide-sediu-anul-viitor/",
+    "source": "Actual de Cluj",
+    "published_date": "2025-10-15T00:00:00+00:00",
+    "snippet": "Actualitate Educaţie by Actual de Cluj - oct. 15, 2025 0 243 O universitate din Cluj e partener în prima infrastructură națională pentru inteligența artificială. E vorba de RO AI Factory, coordonată de Institutul de Cercetare în Informatică București și Politehnica din Capitală, consorțiu în care e ",
+    "matched_keywords": [
+      "AIRI",
+      "AIRi",
+      "Artificial Intelligence Research Institute",
+      "RO AI Factory",
+      "UTCN"
+    ],
+    "matched_persons": [
+      "Adrian Petru Groza"
+    ]
+  },
+  {
+    "id": "4abaf0d803f87ea8",
+    "title": "Institutul de Inteligență Artificială al UTCN, gata în primăvară: 10.000 mp și primul centru de calcul cu răcire cu lichid din România",
+    "url": "https://actualdecluj.ro/institutul-de-inteligenta-artificiala-al-utcn-gata-in-primavara-10-000-mp-si-primul-centru-de-calcul-cu-racire-cu-lichid-din-romania/",
+    "source": "Actual de Cluj",
+    "published_date": "2026-03-01T00:00:00+00:00",
+    "snippet": "Centrul de cercetare în inteligență artificială din Cluj trebuia finalizat în luna martie, arată raportul Universității Tehnice. Cu o suprafață desfășurată de aproximativ 10.000 de metri pătrați, construcția a absorbit anul trecut peste 70 de milioane de lei din resursele proprii ale universității. ",
+    "matched_keywords": [
+      "Institutul de Inteligență Artificială",
+      "Institutul de Inteligenta Artificiala",
+      "UTCN"
+    ],
+    "matched_persons": []
+  },
+  {
+    "id": "9cbf235fdd8a3a5c",
+    "title": "FOTO. Guvernul a aprobat realizarea noului centru de Inteligență Artificială pe care îl vrea UTCN la Cluj. Cum arată proiectul de peste 25 de milioane de euro?",
+    "url": "https://actualdecluj.ro/foto-guvernul-a-aprobat-realizarea-noului-centru-de-inteligenta-artificiala-pe-care-il-vrea-utcn-la-cluj-cum-arata-proiectul-de-peste-25-de-milioane-de-euro/",
+    "source": "Actual de Cluj",
+    "published_date": "2022-11-04T00:00:00+00:00",
+    "snippet": "Actualitate Top News by Kristina Reştea - nov. 04, 2022 1 1045 Guvernul României a aprobat în ședința de ieri, prin Hotărâre de Guvern, realizarea clădirii pentru Laboratoarele de Cercetare în Inteligență Artificială a Universității Tehnice din Cluj-Napoca (UTCN). Clădirea ce va găzdui institutul va",
+    "matched_keywords": [
+      "Institutul de Cercetare în Inteligență Artificială",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca"
+    ],
+    "matched_persons": [
+      "Vasile Topa"
+    ]
+  },
+  {
+    "id": "2998adf7cc5dbd48",
+    "title": "Au demarat lucrările la centrul de Inteligență Artificială al Clujului",
+    "url": "https://actualdecluj.ro/au-demarat-lucrarile-la-centrul-de-inteligenta-artificiala-al-clujului/",
+    "source": "Actual de Cluj",
+    "published_date": "2024-05-24T00:00:00+00:00",
+    "snippet": "Actualitate Administrație Economie Top News by Kristina Reştea - mai 24, 2024 0 823 Șantierul pentru Institutul de AI din Cluj-Napoca s-a deschis oficial azi, cu un roboțel care a amplasat o „capsulă a timpului”, pentru viitorii cercetători. Investiția se va ridica la peste 105 milioane de lei, iar ",
+    "matched_keywords": [
+      "Institutul de Inteligență Artificială",
+      "UTCN"
+    ],
+    "matched_persons": [
+      "Vasile Topa"
+    ]
+  },
+  {
+    "id": "f5e1e1a15691e8a9",
+    "title": "A fost semnat contractul pentru începerea lucrărilor de proiectare și execuție a viitorului Institut de Inteligență Artificială din Cluj, azi, costă 105 milioane de lei",
+    "url": "https://actualdecluj.ro/a-fost-semnat-contractul-pentru-inceperea-lucrarilor-de-proiectare-si-executie-a-viitorului-institut-de-inteligenta-artificiala-din-cluj-azi-costa-105-milioane-de-lei/",
+    "source": "Actual de Cluj",
+    "published_date": "2024-02-01T00:00:00+00:00",
+    "snippet": "A fost semnat contractul pentru începerea lucrărilor de proiectare și execuție a viitorului Institut de Inteligență Artificială din Cluj, azi. Contractul a fost semnat de Universitatea Tehnică din Cluj-Napoca, cu asocierea formată din Kész Construcţii România SRL și SDC Proiect SRL. Acesta are o val",
+    "matched_keywords": [
+      "Institut de Inteligență Artificială",
+      "Institut de Inteligenta Artificiala",
+      "UTCN",
+      "Universitatea Tehnică din Cluj-Napoca",
+      "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj"
+    ],
     "matched_persons": []
   }
 ]

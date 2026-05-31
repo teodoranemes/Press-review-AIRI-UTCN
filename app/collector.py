@@ -1,9 +1,4 @@
-"""RSS feed collector.
-
-Fetches configured feeds, filters articles via matcher, and persists results.
-Respects robots.txt and rate-limits to ≤ 1 req/sec per domain.
-Stores only: title, url, source, published_date, snippet (≤300 chars), matched_keywords.
-"""
+"""RSS feed collector and article importer."""
 from __future__ import annotations
 
 import hashlib
@@ -23,9 +18,7 @@ from app.storage import load_articles, save_articles
 
 logger = logging.getLogger(__name__)
 
-# Cache for robots.txt parsers keyed by domain
 _ROBOTS_CACHE: dict[str, urllib.robotparser.RobotFileParser] = {}
-# Track last request time per domain for rate-limiting
 _LAST_REQUEST: dict[str, float] = {}
 
 
@@ -36,11 +29,9 @@ def _article_id(url: str) -> str:
 def _get_robots(domain: str, user_agent: str) -> urllib.robotparser.RobotFileParser:
     if domain not in _ROBOTS_CACHE:
         rp = urllib.robotparser.RobotFileParser()
-        robots_url = f"https://{domain}/robots.txt"
         try:
-            rp.set_url(robots_url)
+            rp.set_url(f"https://{domain}/robots.txt")
             rp.read()
-            logger.debug("Loaded robots.txt for %s", domain)
         except Exception as exc:
             logger.warning("Could not fetch robots.txt for %s: %s", domain, exc)
         _ROBOTS_CACHE[domain] = rp
@@ -48,8 +39,7 @@ def _get_robots(domain: str, user_agent: str) -> urllib.robotparser.RobotFilePar
 
 
 def _is_allowed(url: str, user_agent: str) -> bool:
-    parsed = urllib.parse.urlparse(url)
-    domain = parsed.netloc
+    domain = urllib.parse.urlparse(url).netloc
     rp = _get_robots(domain, user_agent)
     try:
         return rp.can_fetch(user_agent, url)
@@ -65,19 +55,12 @@ def _rate_limit(domain: str, delay: float) -> None:
     _LAST_REQUEST[domain] = time.monotonic()
 
 
-def _fetch_feed(
-    url: str,
-    cfg: CollectionConfig,
-) -> feedparser.FeedParserDict | None:
-    parsed_url = urllib.parse.urlparse(url)
-    domain = parsed_url.netloc
-
+def _fetch_feed(url: str, cfg: CollectionConfig) -> feedparser.FeedParserDict | None:
+    domain = urllib.parse.urlparse(url).netloc
     if not _is_allowed(url, cfg.user_agent):
         logger.warning("Robots.txt disallows fetching %s", url)
         return None
-
     _rate_limit(domain, cfg.request_delay_seconds)
-
     try:
         with httpx.Client(
             headers={"User-Agent": cfg.user_agent},
@@ -95,20 +78,18 @@ def _fetch_feed(
 
 
 def _parse_date(entry: feedparser.FeedParserDict) -> str:
-    """Best-effort ISO date string from a feedparser entry."""
     for attr in ("published_parsed", "updated_parsed", "created_parsed"):
         val = getattr(entry, attr, None)
         if val:
             try:
-                dt = datetime(*val[:6], tzinfo=timezone.utc)
-                return dt.isoformat()
+                return datetime(*val[:6], tzinfo=timezone.utc).isoformat()
             except Exception:
                 pass
     return datetime.now(tz=timezone.utc).isoformat()
 
 
 def _snippet(entry: feedparser.FeedParserDict) -> str:
-    """Extract up to 300 chars of body text from a feedparser entry."""
+    import re
     for attr in ("summary", "description", "content"):
         raw: str = ""
         val = getattr(entry, attr, None)
@@ -119,12 +100,8 @@ def _snippet(entry: feedparser.FeedParserDict) -> str:
         elif isinstance(val, str):
             raw = val
         if raw:
-            # Strip HTML tags simply
-            import re
-
             clean = re.sub(r"<[^>]+>", " ", raw)
-            clean = " ".join(clean.split())
-            return clean[:300]
+            return " ".join(clean.split())[:300]
     return ""
 
 
@@ -133,27 +110,42 @@ def fetch_article_by_url(
     source_name: str,
     user_agent: str,
 ) -> dict[str, Any] | None:
-    """Fetch a single article URL, return raw {title, snippet, published_date} or None."""
+    """Scrape a single article page. Returns raw article dict or None on failure.
+
+    Also returns _match_body (up to 1000 chars of body text) used only for
+    relevance matching — it is not stored in articles.json.
+    """
     import re
 
     _rate_limit(urllib.parse.urlparse(url).netloc, 1.0)
-    try:
-        with httpx.Client(
-            headers={"User-Agent": user_agent},
-            follow_redirects=True,
-            timeout=15.0,
-        ) as client:
-            response = client.get(url)
-            response.raise_for_status()
-    except Exception as exc:
-        logger.error("Failed to fetch %s: %s", url, exc)
+    response = None
+    # Retry without SSL verification if the first attempt fails on certificate error
+    for verify in (True, False):
+        try:
+            with httpx.Client(
+                headers={"User-Agent": user_agent},
+                follow_redirects=True,
+                timeout=15.0,
+                verify=verify,
+            ) as client:
+                response = client.get(url)
+                response.raise_for_status()
+            break
+        except httpx.ConnectError as exc:
+            if "CERTIFICATE" in str(exc).upper() and verify:
+                continue
+            logger.error("Failed to fetch %s: %s", url, exc)
+            return None
+        except Exception as exc:
+            logger.error("Failed to fetch %s: %s", url, exc)
+            return None
+    if response is None:
         return None
 
     from bs4 import BeautifulSoup
 
     soup = BeautifulSoup(response.text, "lxml")
 
-    # Title: prefer og:title, then <h1>, then <title>
     title = ""
     og = soup.find("meta", property="og:title")
     if og and og.get("content"):
@@ -165,8 +157,34 @@ def fetch_article_by_url(
         t = soup.find("title")
         title = t.get_text(strip=True) if t else ""
 
-    # Published date: <time datetime=...>, og:article:published_time, meta name=date
+    import re as _re
+    _RO_MONTHS = {
+        "ianuarie": 1, "februarie": 2, "martie": 3, "aprilie": 4,
+        "mai": 5, "iunie": 6, "iulie": 7, "august": 8,
+        "septembrie": 9, "octombrie": 10, "noiembrie": 11, "decembrie": 12,
+    }
+
+    def _parse_ro_date(text: str) -> "datetime | None":
+        m = _re.search(
+            r"(\d{1,2})\s+(ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|decembrie)\s+(\d{4})",
+            text, _re.I,
+        )
+        if m:
+            try:
+                return datetime(int(m.group(3)), _RO_MONTHS[m.group(2).lower()], int(m.group(1)), tzinfo=timezone.utc)
+            except ValueError:
+                pass
+        m = _re.search(r"(\d{1,2})[./](\d{1,2})[./](\d{4})", text)
+        if m:
+            try:
+                return datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)), tzinfo=timezone.utc)
+            except ValueError:
+                pass
+        return None
+
     pub_date = datetime.now(tz=timezone.utc).isoformat()
+    _date_found = False
+
     for meta_attr, meta_name in [
         ("property", "article:published_time"),
         ("name", "date"),
@@ -176,26 +194,31 @@ def fetch_article_by_url(
         m = soup.find("meta", attrs={meta_attr: meta_name})
         if m and m.get("content"):
             try:
-                dt = datetime.fromisoformat(m["content"].replace("Z", "+00:00"))
-                pub_date = dt.isoformat()
+                pub_date = datetime.fromisoformat(m["content"].replace("Z", "+00:00")).isoformat()
+                _date_found = True
                 break
             except ValueError:
                 pass
-    else:
+
+    if not _date_found:
         time_el = soup.find("time", attrs={"datetime": True})
         if time_el:
             try:
-                dt = datetime.fromisoformat(
-                    time_el["datetime"].replace("Z", "+00:00")
-                )
-                pub_date = dt.isoformat()
+                pub_date = datetime.fromisoformat(time_el["datetime"].replace("Z", "+00:00")).isoformat()
+                _date_found = True
             except (ValueError, KeyError):
                 pass
 
-    # Snippet: prefer article body over og:description (og:description is often
-    # a newsletter CTA or truncated teaser that may not contain keywords).
-    # Strategy: extract first 300 chars of meaningful paragraph text; fall back
-    # to og:description only if no body text found.
+    # Fallback: scan short visible elements for Romanian text dates (e.g. "22 Decembrie 2025")
+    if not _date_found:
+        for el in soup.find_all(["span", "div", "p", "li", "time"]):
+            text_val = el.get_text(" ", strip=True)
+            if len(text_val) < 60:
+                dt = _parse_ro_date(text_val)
+                if dt:
+                    pub_date = dt.isoformat()
+                    break
+
     for tag in soup(["nav", "header", "footer", "aside", "script", "style", "form"]):
         tag.decompose()
     paras = [
@@ -204,13 +227,17 @@ def fetch_article_by_url(
         if len(p.get_text(strip=True)) > 50
     ]
     snippet = ""
+    match_body = ""
     if paras:
         raw = " ".join(paras[:5])
-        snippet = re.sub(r"\s+", " ", raw)[:300]
+        clean = re.sub(r"\s+", " ", raw)
+        snippet = clean[:300]
+        match_body = re.sub(r"\s+", " ", " ".join(paras[:10]))[:1000]
     if not snippet:
         og_desc = soup.find("meta", property="og:description")
         if og_desc and og_desc.get("content"):
             snippet = og_desc["content"].strip()[:300]
+            match_body = match_body or snippet
 
     return {
         "id": _article_id(url),
@@ -219,6 +246,7 @@ def fetch_article_by_url(
         "source": source_name,
         "published_date": pub_date,
         "snippet": snippet,
+        "_match_body": match_body,
     }
 
 
@@ -231,10 +259,9 @@ def import_url(
     graph_path: Any,
     graph_builder: Any,
 ) -> dict[str, Any]:
-    """Import a single article by URL.  Returns result dict with status."""
+    """Import a single article by URL. Returns result dict with status."""
     article_id = _article_id(url)
     existing = load_articles(articles_path)
-    # Deduplicate by both generated hash AND stored URL
     if any(a["id"] == article_id or a.get("url") == url for a in existing):
         return {"status": "duplicate", "url": url}
 
@@ -243,21 +270,19 @@ def import_url(
         return {"status": "fetch_error", "url": url}
 
     kw_dict = config.keywords.model_dump()
+    # Use extended body for matching; only snippet is stored
+    match_body = raw.pop("_match_body", raw["snippet"])
     is_rel, matched_kws, matched_persons = article_is_relevant(
-        raw["title"], raw["snippet"], kw_dict, people
+        raw["title"], match_body, kw_dict, people
     )
 
-    article = {
-        **raw,
-        "matched_keywords": matched_kws,
-        "matched_persons": matched_persons,
-    }
+    article = {**raw, "matched_keywords": matched_kws, "matched_persons": matched_persons}
 
     # Always save when explicitly imported (bypass relevance filter)
     all_articles = existing + [article]
     save_articles(articles_path, all_articles)
-    graph = graph_builder.build_graph(all_articles, people)
     from app.storage import save_graph
+    graph = graph_builder.build_graph(all_articles, people)
     save_graph(graph_path, graph)
 
     logger.info(
@@ -274,6 +299,127 @@ def import_url(
     }
 
 
+def search_and_import(
+    config: AppConfig,
+    people: list[dict[str, Any]],
+    articles_path: Any,
+    graph_path: Any,
+    graph_builder: Any,
+) -> dict[str, Any]:
+    """Search Google (SerpAPI or CSE) for relevant articles and import new ones."""
+    cse = config.google_cse
+    use_serpapi = bool(cse.serpapi_key)
+    use_cse     = bool(cse.api_key and cse.cx)
+
+    if not use_serpapi and not use_cse:
+        return {"error": "No search method configured (serpapi_key or api_key+cx)"}
+
+    allowed_domains: set[str] = set()
+    for src in config.sources:
+        import urllib.parse as _up2
+        d = _up2.urlparse(src.homepage).netloc.lstrip("www.")
+        if d:
+            allowed_domains.add(d)
+
+    BLOCKED_DOMAINS = {
+        "instagram.com", "facebook.com", "twitter.com", "x.com",
+        "linkedin.com", "ro.linkedin.com", "youtube.com",
+        "soundcloud.com", "tiktok.com", "pinterest.com",
+        "airicorsets.com", "airi.net", "airi.utcluj.ro",
+        "amazon.com", "emag.ro", "wikipedia.org",
+    }
+
+    inst_kw  = " OR ".join(f'"{k}"' for k in config.keywords.institute[:4])
+    roai_kw  = '"RO AI Factory" OR "HRIA" OR "Hubul Roman de Inteligenta Artificiala"'
+    combined = f"({inst_kw}) OR ({roai_kw})"
+
+    # Site-specific queries for each configured press source, plus a broad .ro sweep
+    site_queries  = [f"({combined}) site:{d}" for d in list(allowed_domains)]
+    broad_queries = [f"({combined}) site:.ro"]
+    base_queries  = site_queries + broad_queries
+    kw_dict = config.keywords.model_dump()
+
+    stats = {"searched": 0, "imported": 0, "duplicate": 0, "fetch_error": 0}
+    seen_urls: set[str] = {a.get("url", "") for a in load_articles(articles_path)}
+
+    for query in base_queries:
+        try:
+            results = _serpapi_search(query, cse.serpapi_key) if use_serpapi else _google_cse_search(query, cse.api_key, cse.cx)
+            stats["searched"] += len(results)
+        except Exception as exc:
+            logger.error("Search failed for %r: %s", query, exc)
+            continue
+
+        for item in results:
+            url = item["url"]
+            item_domain = urllib.parse.urlparse(url).netloc.lstrip("www.")
+
+            if item_domain in BLOCKED_DOMAINS:
+                continue
+            in_allowlist = any(item_domain == d or item_domain.endswith("." + d) for d in allowed_domains)
+            if not in_allowlist and not item_domain.endswith(".ro"):
+                continue
+
+            # Pre-filter on title before fetching the full article body
+            pre_title = item.get("title", "")
+            all_kws = kw_dict.get("institute", []) + kw_dict.get("university", []) + kw_dict.get("research_units", [])
+            from app.matcher import term_matches
+            if not any(term_matches(kw, pre_title) for kw in all_kws):
+                continue
+
+            if url in seen_urls:
+                stats["duplicate"] += 1
+                continue
+
+            result = import_url(
+                url=url,
+                source_name=item.get("source", ""),
+                config=config,
+                people=people,
+                articles_path=articles_path,
+                graph_path=graph_path,
+                graph_builder=graph_builder,
+            )
+            seen_urls.add(url)
+            if result["status"] == "imported":
+                stats["imported"] += 1
+            elif result["status"] == "duplicate":
+                stats["duplicate"] += 1
+            else:
+                stats["fetch_error"] += 1
+
+    logger.info("Search complete: %s", stats)
+    return stats
+
+
+def _google_cse_search(query: str, api_key: str, cx: str, num: int = 10) -> list[dict[str, Any]]:
+    import urllib.parse as _up
+    params = {"key": api_key, "cx": cx, "q": query, "num": num}
+    with httpx.Client(timeout=15.0) as client:
+        r = client.get("https://www.googleapis.com/customsearch/v1", params=params)
+        r.raise_for_status()
+    data = r.json()
+    if "error" in data:
+        raise RuntimeError(data["error"]["message"])
+    return [
+        {"title": i.get("title", ""), "url": i.get("link", ""), "source": _up.urlparse(i.get("link", "")).netloc.lstrip("www.")}
+        for i in data.get("items", [])
+    ]
+
+
+def _serpapi_search(query: str, api_key: str, num: int = 10) -> list[dict[str, Any]]:
+    import urllib.parse as _up
+    params = {"api_key": api_key, "engine": "google", "q": query, "num": num, "gl": "ro", "hl": "ro"}
+    with httpx.Client(timeout=15.0) as client:
+        r = client.get("https://serpapi.com/search", params=params)
+        r.raise_for_status()
+    data = r.json()
+    return [
+        {"title": i.get("title", ""), "url": i.get("link", ""), "source": _up.urlparse(i.get("link", "")).netloc.lstrip("www.")}
+        for i in data.get("organic_results", [])
+    ]
+
+
 def collect_once(
     config: AppConfig,
     people: list[dict[str, Any]],
@@ -281,14 +427,12 @@ def collect_once(
     graph_path: Any,
     graph_builder: Any,
 ) -> int:
-    """Run a single collection pass.  Returns number of new articles added."""
+    """Run one RSS collection pass. Returns number of new articles saved."""
     existing = load_articles(articles_path)
     seen_ids: set[str] = {a["id"] for a in existing}
     new_articles: list[dict[str, Any]] = []
 
-    max_age_cutoff = datetime.now(tz=timezone.utc) - timedelta(
-        days=config.collection.max_article_age_days
-    )
+    max_age_cutoff = datetime.now(tz=timezone.utc) - timedelta(days=config.collection.max_article_age_days)
     kw_dict = config.keywords.model_dump()
 
     for source in config.sources:
@@ -310,7 +454,6 @@ def collect_once(
             snippet = _snippet(entry)
             pub_date_str = _parse_date(entry)
 
-            # Age filter
             try:
                 pub_dt = datetime.fromisoformat(pub_date_str)
                 if pub_dt.tzinfo is None:
@@ -320,13 +463,11 @@ def collect_once(
             except ValueError:
                 pass
 
-            is_rel, matched_kws, matched_persons = article_is_relevant(
-                title, snippet, kw_dict, people
-            )
+            is_rel, matched_kws, matched_persons = article_is_relevant(title, snippet, kw_dict, people)
             if not is_rel:
                 continue
 
-            article: dict[str, Any] = {
+            new_articles.append({
                 "id": article_id,
                 "title": title,
                 "url": url,
@@ -335,17 +476,15 @@ def collect_once(
                 "snippet": snippet,
                 "matched_keywords": matched_kws,
                 "matched_persons": matched_persons,
-            }
-            new_articles.append(article)
+            })
             seen_ids.add(article_id)
             logger.info("Matched article: %r (%s)", title[:80], source.name)
 
     if new_articles:
         all_articles = existing + new_articles
         save_articles(articles_path, all_articles)
-        # Rebuild graph
-        graph = graph_builder.build_graph(all_articles, people)
         from app.storage import save_graph
+        graph = graph_builder.build_graph(all_articles, people)
         save_graph(graph_path, graph)
         logger.info("Added %d new articles; graph rebuilt", len(new_articles))
     else:

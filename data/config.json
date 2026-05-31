@@ -7,6 +7,10 @@
       "AIRi@UTCN",
       "Institutul de Cercetare în Inteligență Artificială",
       "Institutul de Cercetare in Inteligenta Artificiala",
+      "Institutul de Inteligență Artificială",
+      "Institutul de Inteligenta Artificiala",
+      "Institut de Inteligență Artificială",
+      "Institut de Inteligenta Artificiala",
       "Artificial Intelligence Research Institute",
       "RO AI Factory",
       "HRIA",
@@ -17,6 +21,8 @@
       "UTCN",
       "Universitatea Tehnică din Cluj-Napoca",
       "Universitatea Tehnica din Cluj-Napoca",
+      "Universitatea Tehnică din Cluj",
+      "Universitatea Tehnica din Cluj",
       "Technical University of Cluj-Napoca"
     ],
     "research_units": [
@@ -77,12 +83,47 @@
       "name": "Romania Insider",
       "rss_url": "https://www.romania-insider.com/feed",
       "homepage": "https://www.romania-insider.com"
+    },
+    {
+      "name": "Ziar de Cluj",
+      "rss_url": "https://ziardecluj.ro/feed/",
+      "homepage": "https://ziardecluj.ro"
+    },
+    {
+      "name": "Actual de Cluj",
+      "rss_url": "https://actualdecluj.ro/feed/",
+      "homepage": "https://actualdecluj.ro"
+    },
+    {
+      "name": "ClujUst",
+      "rss_url": "https://www.clujust.ro/feed/",
+      "homepage": "https://www.clujust.ro"
+    },
+    {
+      "name": "Mediafax",
+      "rss_url": "https://www.mediafax.ro/feed",
+      "homepage": "https://www.mediafax.ro"
+    },
+    {
+      "name": "Profit.ro",
+      "rss_url": "https://www.profit.ro/rss.xml",
+      "homepage": "https://www.profit.ro"
+    },
+    {
+      "name": "Biziday",
+      "rss_url": "https://www.biziday.ro/feed/",
+      "homepage": "https://www.biziday.ro"
     }
   ],
   "collection": {
     "poll_interval_minutes": 30,
-    "max_article_age_days": 30,
+    "max_article_age_days": 365,
     "request_delay_seconds": 1.0,
     "user_agent": "AIRI-PressReview/1.0 (+https://airi.utcluj.ro)"
+  },
+  "google_cse": {
+    "api_key": "AIzaSyDnK9Mm3FY03wrhghKmg8P7S4Qtv4qxVHk",
+    "cx": "06ef5a9fe7f684b7d",
+    "serpapi_key": "3e6c2c341f9c98708234eb808d2fb1252cf7096065a6c228e250c2895132cf35"
   }
 }
