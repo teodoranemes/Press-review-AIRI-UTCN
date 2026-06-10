@@ -26,16 +26,19 @@
       --col-article:  #d4400a;
       --col-source:   #0a7c3e;
       --col-unit:     #7c35c9;
+      --col-keyword:  #b45a00;
 
       --fill-person:  #dce8ff;
       --fill-article: #fde8de;
       --fill-source:  #d4f5e4;
       --fill-unit:    #ecdcff;
+      --fill-keyword: #fff3e0;
 
       --stroke-person:  #1a6ef8;
       --stroke-article: #d4400a;
       --stroke-source:  #0a7c3e;
       --stroke-unit:    #7c35c9;
+      --stroke-keyword: #b45a00;
     }
 
     html, body { height: 100%; background: var(--bg); color: var(--text-1); font-family: 'Inter', sans-serif; overflow: hidden; }
@@ -90,6 +93,7 @@
     .legend-chip.active.Article  { background: var(--fill-article); color: var(--col-article); }
     .legend-chip.active.Source   { background: var(--fill-source);  color: var(--col-source); }
     .legend-chip.active.ResUnit  { background: var(--fill-unit);    color: var(--col-unit); }
+    .legend-chip.active.Keyword  { background: var(--fill-keyword); color: var(--col-keyword); }
     .legend-chip.off { opacity: 0.45; }
     .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .toolbar-sep { width: 1px; height: 20px; background: var(--border); margin: 0 2px; }
@@ -102,10 +106,42 @@
     }
     .toolbar-btn:hover { background: var(--surface-hover); color: var(--text-1); }
 
+    /* ── Date filter bar ── */
+    .date-bar {
+      position: fixed; top: 112px; left: 50%; transform: translateX(-50%);
+      z-index: 89;
+      display: flex; align-items: center; gap: 4px; padding: 4px 6px;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+      border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .period-tab {
+      padding: 4px 11px; border-radius: 8px; font-size: 11px; font-weight: 500;
+      background: transparent; border: none; color: var(--text-3);
+      cursor: pointer; font-family: inherit; transition: all 0.15s;
+    }
+    .period-tab:hover { background: var(--surface); color: var(--text-2); }
+    .period-tab.active { background: var(--text-1); color: #fff; }
+    .date-bar-sep { width: 1px; height: 16px; background: var(--border); margin: 0 2px; }
+    .date-nav {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-2); cursor: pointer; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s; font-family: inherit;
+    }
+    .date-nav:hover { background: var(--surface-hover); color: var(--text-1); }
+    .date-nav:disabled { opacity: 0.3; cursor: default; }
+    #date-label {
+      font-size: 11px; font-weight: 600; color: var(--text-2);
+      min-width: 120px; text-align: center; font-family: 'JetBrains Mono', monospace;
+    }
+
     /* ── Canvas ── */
     #cy {
       position: fixed; inset: 0; top: 52px;
       width: 100%; height: calc(100vh - 52px);
+      /* graph renders below both bars via padding — bars are floating, not blocking */
     }
 
     /* ── Info panel ── */
@@ -135,12 +171,14 @@
     .info-type-icon.Article      { background: var(--fill-article); }
     .info-type-icon.Source       { background: var(--fill-source); }
     .info-type-icon.ResearchUnit { background: var(--fill-unit); }
+    .info-type-icon.Keyword      { background: var(--fill-keyword); }
     .info-header-text { flex: 1; min-width: 0; }
     .info-type-label { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px; }
     .info-type-label.Person   { color: var(--col-person); }
     .info-type-label.Article  { color: var(--col-article); }
     .info-type-label.Source   { color: var(--col-source); }
     .info-type-label.ResearchUnit { color: var(--col-unit); }
+    .info-type-label.Keyword  { color: var(--col-keyword); }
     .info-name { font-size: 14px; font-weight: 600; color: var(--text-1); line-height: 1.35; word-break: break-word; }
     .info-close {
       width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
@@ -227,11 +265,26 @@
   <button class="legend-chip active ResUnit" data-type="ResearchUnit" onclick="toggleType('ResearchUnit',this)">
     <span class="legend-dot" style="background:var(--stroke-unit)"></span>Unități
   </button>
+  <button class="legend-chip active Keyword" data-type="Keyword" onclick="toggleType('Keyword',this)">
+    <span class="legend-dot" style="background:var(--stroke-keyword)"></span>Cuvinte cheie
+  </button>
   <div class="toolbar-sep"></div>
   <button class="toolbar-btn" id="btn-fit">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
     Centrează
   </button>
+</div>
+
+<!-- ── Date filter bar ── -->
+<div class="date-bar">
+  <button class="period-tab active" data-period="total" onclick="setPeriod('total',this)">Total</button>
+  <button class="period-tab" data-period="month" onclick="setPeriod('month',this)">Lunar</button>
+  <button class="period-tab" data-period="week" onclick="setPeriod('week',this)">Săptămânal</button>
+  <button class="period-tab" data-period="day" onclick="setPeriod('day',this)">Zilnic</button>
+  <div class="date-bar-sep"></div>
+  <button class="date-nav" id="btn-prev-date" onclick="shiftDate(-1)">‹</button>
+  <span id="date-label">Toate</span>
+  <button class="date-nav" id="btn-next-date" onclick="shiftDate(1)">›</button>
 </div>
 
 <!-- ── Canvas ── -->
@@ -262,35 +315,41 @@ const TYPE_FILL = {
   Article:      "#fde8de",
   Source:       "#d4f5e4",
   ResearchUnit: "#ecdcff",
+  Keyword:      "#fff3e0",
 };
 const TYPE_STROKE = {
   Person:       "#1a6ef8",
   Article:      "#d4400a",
   Source:       "#0a7c3e",
   ResearchUnit: "#7c35c9",
+  Keyword:      "#b45a00",
 };
 const TYPE_SHAPE = {
   Person:       "ellipse",
   Article:      "round-rectangle",
   Source:       "diamond",
   ResearchUnit: "hexagon",
+  Keyword:      "tag",
 };
-const TYPE_ICON = { Person:"👤", Article:"📰", Source:"🌐", ResearchUnit:"🔬" };
-const TYPE_LABEL_RO = { Person:"Persoană", Article:"Articol", Source:"Sursă", ResearchUnit:"Unitate de cercetare" };
+const TYPE_ICON = { Person:"👤", Article:"📰", Source:"🌐", ResearchUnit:"🔬", Keyword:"🔑" };
+const TYPE_LABEL_RO = { Person:"Persoană", Article:"Articol", Source:"Sursă", ResearchUnit:"Unitate de cercetare", Keyword:"Cuvânt cheie" };
 
 const EDGE_COLOR = {
   MENTIONED_IN:      "rgba(26,110,248,0.3)",
   PUBLISHED_BY:      "rgba(10,124,62,0.35)",
   CO_MENTIONED_WITH: "rgba(180,120,0,0.4)",
   AFFILIATED_WITH:   "rgba(124,53,201,0.3)",
+  MATCHED_BY:        "rgba(180,90,0,0.35)",
 };
 
 function nodeSize(ele) {
   const t = ele.data("type");
   const m = ele.data("total_mentions") || 0;
+  const ac = ele.data("article_count") || 1;
   if (t === "Source")       return 38;
   if (t === "Person")       return Math.max(28, 22 + m * 5);
   if (t === "ResearchUnit") return 30;
+  if (t === "Keyword")      return Math.max(24, 18 + ac * 4);
   return 22;
 }
 
@@ -357,10 +416,10 @@ const CY_STYLE = [
       width: ele => Math.min(1.2 + (ele.data("weight") || 1) * 0.4, 3.5),
       "line-color": ele => EDGE_COLOR[ele.data("type")] || "rgba(0,0,0,0.1)",
       "target-arrow-shape": ele =>
-        ele.data("type") === "CO_MENTIONED_WITH" ? "none" : "vee",
+        ["CO_MENTIONED_WITH", "MATCHED_BY"].includes(ele.data("type")) ? "none" : "vee",
       "target-arrow-color": ele => EDGE_COLOR[ele.data("type")] || "rgba(0,0,0,0.1)",
       "line-style": ele =>
-        ele.data("type") === "CO_MENTIONED_WITH" ? "solid" : "dashed",
+        ["CO_MENTIONED_WITH", "MATCHED_BY"].includes(ele.data("type")) ? "solid" : "dashed",
       "line-dash-pattern": [6, 4],
       "curve-style": "bezier",
       opacity: 0.9,
@@ -393,6 +452,7 @@ function showInfo(d) {
   if (d.role)            rows.push(["Rol", d.role]);
   if (d.research_unit)   rows.push(["Unitate", d.research_unit]);
   if (d.total_mentions)  rows.push(["Mențiuni", d.total_mentions]);
+  if (d.article_count)   rows.push(["Articole", d.article_count]);
   if (d.last_seen)       rows.push(["Ultima apariție", d.last_seen.slice(0, 10)]);
   if (d.source)          rows.push(["Sursă", d.source]);
   if (d.published_date)  rows.push(["Publicat", d.published_date.slice(0, 10)]);
@@ -440,6 +500,70 @@ document.getElementById("close-info").addEventListener("click", () => {
 let cy;
 const hiddenTypes = new Set();
 
+// Date filter state
+let currentPeriod = "total";
+let currentDate = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+function _weekStart(dateStr) {
+  const d = new Date(dateStr);
+  d.setDate(d.getDate() - d.getDay() + 1); // Monday
+  return d.toISOString().slice(0, 10);
+}
+function _monthStart(dateStr) { return dateStr.slice(0, 7) + "-01"; }
+function _monthEnd(dateStr) {
+  const [y, m] = dateStr.slice(0, 7).split("-").map(Number);
+  return new Date(y, m, 0).toISOString().slice(0, 10);
+}
+function _addDays(dateStr, n) {
+  const d = new Date(dateStr); d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+function _dateRange() {
+  if (currentPeriod === "total") return [null, null];
+  if (currentPeriod === "day")   return [currentDate, currentDate];
+  if (currentPeriod === "week") {
+    const s = _weekStart(currentDate);
+    return [s, _addDays(s, 6)];
+  }
+  if (currentPeriod === "month") {
+    return [_monthStart(currentDate), _monthEnd(currentDate)];
+  }
+  return [null, null];
+}
+
+function _updateDateLabel() {
+  const lbl = document.getElementById("date-label");
+  const [s, e] = _dateRange();
+  if (!s) { lbl.textContent = "Toate"; return; }
+  if (currentPeriod === "day")   { lbl.textContent = s; return; }
+  if (currentPeriod === "week")  { lbl.textContent = `${s} – ${e}`; return; }
+  if (currentPeriod === "month") { lbl.textContent = s.slice(0, 7); return; }
+}
+
+function setPeriod(period, btn) {
+  currentPeriod = period;
+  document.querySelectorAll(".period-tab").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  const hasNav = period !== "total";
+  document.getElementById("btn-prev-date").disabled = !hasNav;
+  document.getElementById("btn-next-date").disabled = !hasNav;
+  _updateDateLabel();
+  applyVisibility();
+}
+
+function shiftDate(dir) {
+  if (currentPeriod === "day")   currentDate = _addDays(currentDate, dir);
+  if (currentPeriod === "week")  currentDate = _addDays(currentDate, dir * 7);
+  if (currentPeriod === "month") {
+    const [y, m] = currentDate.slice(0, 7).split("-").map(Number);
+    const nd = new Date(y, m - 1 + dir, 1);
+    currentDate = nd.toISOString().slice(0, 10);
+  }
+  _updateDateLabel();
+  applyVisibility();
+}
+
 function toggleType(type, btn) {
   if (hiddenTypes.has(type)) {
     hiddenTypes.delete(type);
@@ -455,14 +579,50 @@ function toggleType(type, btn) {
 
 function applyVisibility() {
   if (!cy) return;
+  const [rangeStart, rangeEnd] = _dateRange();
+
+  // Determine which Article nodes are visible in the current date range
+  const visibleArticleIds = new Set();
   cy.nodes().forEach(n => {
-    n.style("display", hiddenTypes.has(n.data("type")) ? "none" : "element");
+    if (n.data("type") !== "Article") return;
+    if (rangeStart) {
+      const d = (n.data("published_date") || "").slice(0, 10);
+      if (d < rangeStart || d > rangeEnd) return;
+    }
+    visibleArticleIds.add(n.id());
   });
+
+  // A non-Article node is visible only if it connects to at least one visible Article
+  cy.nodes().forEach(n => {
+    const t = n.data("type");
+    if (hiddenTypes.has(t)) { n.style("display", "none"); return; }
+    if (t === "Article") {
+      n.style("display", visibleArticleIds.has(n.id()) ? "element" : "none");
+      return;
+    }
+    // Person, Source, Keyword, ResearchUnit: show only if connected to a visible article
+    if (rangeStart) {
+      const connectedArticles = n.neighborhood("node[type='Article']");
+      const hasVisible = connectedArticles.some(a => visibleArticleIds.has(a.id()));
+      n.style("display", hasVisible ? "element" : "none");
+    } else {
+      n.style("display", "element");
+    }
+  });
+
   cy.edges().forEach(e => {
     const v = e.source().style("display") !== "none" &&
               e.target().style("display") !== "none";
     e.style("display", v ? "element" : "none");
   });
+
+  // Update stats badge
+  const vis = cy.nodes().filter(n => n.style("display") !== "none");
+  const nA = vis.filter(n => n.data("type") === "Article").length;
+  const nS = vis.filter(n => n.data("type") === "Source").length;
+  const nP = vis.filter(n => n.data("type") === "Person").length;
+  document.getElementById("stats-badge").innerHTML =
+    `<span>${nA}</span> articole · <span>${nS}</span> surse · <span>${nP}</span> persoane`;
 }
 
 async function init() {
@@ -492,12 +652,17 @@ async function init() {
   document.getElementById("stats-badge").innerHTML =
     `<span>${nArticles}</span> articole · <span>${nSources}</span> surse · <span>${nPersons}</span> persoane`;
 
+  // Init date nav — disabled in "total" mode
+  document.getElementById("btn-prev-date").disabled = true;
+  document.getElementById("btn-next-date").disabled = true;
+
   const elements = [
     ...graph.nodes.map(n => ({ data: { ...n } })),
     ...graph.edges.map((e, i) => ({ data: { id: `e${i}`, ...e } })),
   ];
 
-  const TYPE_LEVEL = { Person: 3, ResearchUnit: 2, Article: 1, Source: 0 };
+  // Concentric rings: Person (center) → ResearchUnit → Article → Source/Keyword (outer)
+  const TYPE_LEVEL = { Person: 4, ResearchUnit: 3, Article: 2, Source: 1, Keyword: 0 };
 
   const layoutConfig = {
     name: "concentric",

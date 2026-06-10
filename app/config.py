@@ -17,7 +17,6 @@ PEOPLE_PATH = DATA_DIR / "people.json"
 PEOPLE_SAMPLE_PATH = DATA_DIR / "people.sample.json"
 ARTICLES_PATH = DATA_DIR / "articles.json"
 GRAPH_PATH = DATA_DIR / "graph.json"
-EXTRACTED_PERSONS_PATH = DATA_DIR / "extracted_persons.json"
 
 
 class CollectionConfig(BaseModel):

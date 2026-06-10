@@ -1,7 +1,7 @@
 """Social graph construction from matched articles.
 
-Nodes: Person, Article, Source, ResearchUnit.
-Edges: MENTIONED_IN, PUBLISHED_BY, CO_MENTIONED_WITH, AFFILIATED_WITH.
+Nodes: Person, Article, Source, ResearchUnit, Keyword.
+Edges: MENTIONED_IN, PUBLISHED_BY, CO_MENTIONED_WITH, AFFILIATED_WITH, MATCHED_BY.
 """
 from __future__ import annotations
 
@@ -26,11 +26,13 @@ def _source_id(source: str) -> str:
 def _unit_id(unit: str) -> str:
     return f"unit:{unit}"
 
+def _keyword_id(kw: str) -> str:
+    return f"keyword:{kw}"
+
 
 def build_graph(
     articles: list[dict[str, Any]],
     people: list[dict[str, Any]],
-    extracted_persons: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Build graph JSON from articles and people lists.
 
@@ -48,6 +50,9 @@ def build_graph(
     source_nodes_added: set[str] = set()
     unit_nodes_added: set[str] = set()
     person_nodes_added: set[str] = set()
+    keyword_nodes_added: set[str] = set()
+    # Track how many articles each keyword matched
+    keyword_article_count: Counter[str] = Counter()
     co_mention_weights: Counter[frozenset[str]] = Counter()
 
     for article in articles:
@@ -76,6 +81,15 @@ def build_graph(
                 nodes.append({"id": s_node_id, "type": "Source", "label": src})
                 source_nodes_added.add(s_node_id)
             edges.append({"source": a_node_id, "target": s_node_id, "type": "PUBLISHED_BY"})
+
+        # Keyword nodes and MATCHED_BY edges
+        for kw in article.get("matched_keywords", []):
+            kw_node_id = _keyword_id(kw)
+            keyword_article_count[kw] += 1
+            if kw_node_id not in keyword_nodes_added:
+                nodes.append({"id": kw_node_id, "type": "Keyword", "label": kw})
+                keyword_nodes_added.add(kw_node_id)
+            edges.append({"source": kw_node_id, "target": a_node_id, "type": "MATCHED_BY"})
 
         pub_date = article.get("published_date", "")
         for pname in matched_persons:
@@ -113,6 +127,8 @@ def build_graph(
                 co_mention_weights[frozenset(pair)] += 1
 
     for node in nodes:
+        if node["type"] == "Keyword":
+            node["article_count"] = keyword_article_count[node["label"]]
         if node["type"] == "Person":
             pname = node["label"]
             node["total_mentions"] = person_mention_count[pname]
