@@ -12,11 +12,11 @@ from pathlib import Path
 from typing import Any, AsyncGenerator
 
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from app import collector, graph_builder, scheduler
+from app import collector, graph_builder, report, scheduler
 from app.config import load_config, resolve_people_path
 from app.people_importer import build_person_entry, validate_people
 from app.storage import load_articles, load_graph, load_json, save_json
@@ -215,6 +215,31 @@ def get_digest(
         "entries": entries,
         "generated_at": datetime.now(tz=timezone.utc).isoformat(),
     })
+
+
+@app.get("/api/report")
+def get_report(
+    date_str: str = Query(..., alias="date", description="YYYY-MM-DD"),
+    period: str = Query("day", description="day | week | month"),
+) -> Response:
+    """Generate and return a PDF report for the given date/period."""
+    if period not in ("day", "week", "month"):
+        raise HTTPException(status_code=400, detail="period must be day, week or month")
+    try:
+        date.fromisoformat(date_str)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid date format, expected YYYY-MM-DD")
+
+    digest = get_digest(date_str, period).body
+    digest_data = json.loads(digest)
+    pdf_bytes = report.build_pdf(digest_data)
+
+    filename = f"revista-presei-{date_str}-{period}.pdf"
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
 
 
 @app.put("/api/persons")

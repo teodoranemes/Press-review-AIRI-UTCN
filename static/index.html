@@ -35,6 +35,12 @@
       </svg>
       Import URL
     </button>
+    <button class="btn btn-pill" id="btn-export-pdf">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/>
+      </svg>
+      Export PDF
+    </button>
     <a class="btn btn-pill" href="/graph.html">
       Graf
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -424,6 +430,16 @@ async function triggerCollect() {
     } finally {
       document.getElementById("btn-import-go").disabled = false;
     }
+  });
+
+  document.getElementById("btn-export-pdf").addEventListener("click", () => {
+    const url = `/api/report?date=${_currentISO}&period=${_currentPeriod}`;
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `revista-presei-${_currentISO}-${_currentPeriod}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   });
 
   loadDigest(todayISO(), "day");
