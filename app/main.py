@@ -165,23 +165,32 @@ def _date_range(date_str: str, period: str) -> tuple[str, str]:
 @app.get("/api/digest")
 def get_digest(
     date_str: str = Query(..., alias="date", description="YYYY-MM-DD"),
-    period: str = Query("day", description="day | week | month"),
+    period: str = Query("day", description="day | week | month | all"),
 ) -> JSONResponse:
-    """Return articles grouped by source for a given date/period."""
-    if period not in ("day", "week", "month"):
-        raise HTTPException(status_code=400, detail="period must be day, week or month")
+    """Return articles grouped by source for a given date/period.
+
+    period=all ignores the date parameter and returns every article.
+    """
+    if period not in ("day", "week", "month", "all"):
+        raise HTTPException(status_code=400, detail="period must be day, week, month or all")
     try:
         date.fromisoformat(date_str)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid date format, expected YYYY-MM-DD")
 
-    start_str, end_str = _date_range(date_str, period)
     articles: list[dict[str, Any]] = load_articles(ARTICLES_PATH)
-    period_articles = [
-        a for a in articles
-        if start_str <= a.get("published_date", "")[:10] <= end_str
-    ]
-    period_articles.sort(key=lambda a: a.get("published_date", ""), reverse=True)
+
+    if period == "all":
+        period_articles = sorted(articles, key=lambda a: a.get("published_date", ""), reverse=True)
+        start_str = period_articles[-1].get("published_date", "")[:10] if period_articles else date_str
+        end_str   = period_articles[0].get("published_date", "")[:10]  if period_articles else date_str
+    else:
+        start_str, end_str = _date_range(date_str, period)
+        period_articles = [
+            a for a in articles
+            if start_str <= a.get("published_date", "")[:10] <= end_str
+        ]
+        period_articles.sort(key=lambda a: a.get("published_date", ""), reverse=True)
 
     by_source: dict[str, list[dict[str, Any]]] = {}
     for a in period_articles:
@@ -220,11 +229,11 @@ def get_digest(
 @app.get("/api/report")
 def get_report(
     date_str: str = Query(..., alias="date", description="YYYY-MM-DD"),
-    period: str = Query("day", description="day | week | month"),
+    period: str = Query("day", description="day | week | month | all"),
 ) -> Response:
     """Generate and return a PDF report for the given date/period."""
-    if period not in ("day", "week", "month"):
-        raise HTTPException(status_code=400, detail="period must be day, week or month")
+    if period not in ("day", "week", "month", "all"):
+        raise HTTPException(status_code=400, detail="period must be day, week, month or all")
     try:
         date.fromisoformat(date_str)
     except ValueError:

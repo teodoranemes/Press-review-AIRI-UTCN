@@ -2,14 +2,14 @@
 
 /* ── Design tokens ──────────────────────────────────────── */
 :root {
-  --bg:            #F5F5F7;
+  --bg:            #eef2f7;
   --surface:       #FFFFFF;
   --text-1:        #1D1D1F;
   --text-2:        #6E6E73;
   --text-3:        #AEAEB2;
-  --accent:        #0071E3;
-  --accent-bg:     #EAF2FF;
-  --accent-dark:   #0051A8;
+  --accent:        #0077B5;
+  --accent-bg:     #e5f3fb;
+  --accent-dark:   #006097;
   --green:         #34C759;
   --green-bg:      #E8F9EE;
   --border:        rgba(0,0,0,0.07);
@@ -24,6 +24,10 @@
   --ease:          cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --font-d:        'Cormorant Garamond', Georgia, serif;
   --font-b:        'DM Sans', sans-serif;
+  /* UTCN brand */
+  --utcn-navy:     #0b3160;
+  --utcn-blue:     #0077B5;
+  --utcn-blue-dk:  #006097;
 }
 
 /* ── Reset ──────────────────────────────────────────────── */
@@ -44,48 +48,55 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245,245,247,0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--border);
+  background: var(--utcn-navy);
+  border-bottom: 3px solid var(--utcn-blue);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  height: 52px;
+  height: 60px;
   gap: 16px;
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.nav-logo {
-  width: 28px;
+.nav-logo-utcn {
   height: 28px;
-  background: var(--text-1);
-  color: #fff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-d);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  flex-shrink: 0;
+}
+
+.nav-logo-airi {
+  height: 26px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  flex-shrink: 0;
+}
+
+.nav-brand-sep {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.25);
   flex-shrink: 0;
 }
 
 .nav-title {
   font-family: var(--font-b);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--text-1);
+  color: rgba(255,255,255,0.95);
   letter-spacing: -0.01em;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,0.25);
 }
 
 .nav-actions {
@@ -126,17 +137,23 @@ body {
 }
 .btn-accent:hover { background: var(--accent-dark); }
 
+/* Pill buttons inherit context — dark inside nav, light outside */
 .btn-pill {
-  background: var(--surface);
-  color: var(--text-1);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-xs);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.88);
+  border: 1px solid rgba(255,255,255,0.20);
+  box-shadow: none;
 }
-.btn-pill:hover { box-shadow: var(--shadow-sm); border-color: var(--border-strong); }
+.btn-pill:hover {
+  background: rgba(255,255,255,0.20);
+  border-color: rgba(255,255,255,0.38);
+  color: #fff;
+  box-shadow: none;
+}
 
 /* ── Hero ───────────────────────────────────────────────── */
 .hero {
-  padding: 40px 32px 24px;
+  padding: 36px 32px 20px;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -145,9 +162,9 @@ body {
   font-family: var(--font-b);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--utcn-blue);
   margin-bottom: 6px;
 }
 
@@ -175,8 +192,9 @@ body {
 .hero-meta-dot {
   width: 3px;
   height: 3px;
-  background: var(--text-3);
+  background: var(--utcn-blue);
   border-radius: 50%;
+  opacity: 0.5;
 }
 
 /* ── Filter bar ─────────────────────────────────────────── */
@@ -240,7 +258,7 @@ body {
 /* ── Segmented control ──────────────────────────────────── */
 .segment-ctrl {
   display: flex;
-  background: rgba(118, 118, 128, 0.12);
+  background: rgba(11,49,96,0.08);
   border-radius: var(--r-pill);
   padding: 2px;
   gap: 1px;
@@ -261,11 +279,11 @@ body {
   line-height: 1;
 }
 
-.period-tab:hover { color: var(--text-1); }
+.period-tab:hover { color: var(--utcn-navy); }
 
 .period-tab.active {
   background: var(--surface);
-  color: var(--text-1);
+  color: var(--utcn-navy);
   font-weight: 600;
   box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.08);
 }
@@ -280,6 +298,7 @@ body {
   border-radius: var(--r);
   max-width: calc(1080px - 64px);
   margin: 0 auto 20px;
+  border-left: 3px solid var(--utcn-blue);
 }
 
 .summary-strip svg { flex-shrink: 0; color: var(--accent); }
@@ -369,7 +388,7 @@ body {
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: var(--text-1);
+  background: var(--utcn-navy);
   color: #fff;
   font-family: var(--font-d);
   font-size: 12px;
@@ -457,7 +476,7 @@ body {
 }
 
 .tag:hover { transform: scale(1.04); }
-.tag-kw     { background: var(--accent-bg); color: var(--accent); }
+.tag-kw     { background: var(--accent-bg); color: var(--utcn-blue); }
 .tag-person { background: var(--green-bg);  color: #1a7a36; }
 
 /* ── States (empty / loading) ───────────────────────────── */
@@ -512,7 +531,7 @@ body {
 .graph-layout {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 52px);
+  height: calc(100vh - 60px);
 }
 
 .graph-bar {
@@ -658,9 +677,52 @@ body {
   border-top: 1px solid var(--border);
 }
 
+/* ── Language toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 3px 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--r-pill);
+  margin-left: 4px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.40);
+  font-family: var(--font-b);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 100px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.lang-btn.active {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+.lang-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
+
+.lang-sep-v {
+  color: rgba(255,255,255,0.18);
+  font-size: 10px;
+  user-select: none;
+  padding: 0 1px;
+}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 720px) {
-  .nav { padding: 0 16px; }
+  .nav { padding: 0 16px; height: 56px; }
+  .nav-logo-utcn { height: 22px; }
+  .nav-logo-airi  { height: 20px; }
+  .nav-title { display: none; }
   .hero, .filter-bar, .container { padding-left: 16px; padding-right: 16px; }
   .summary-strip { margin-left: 16px; margin-right: 16px; }
   .table-header { display: none; }

@@ -4,60 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Revista Presei — AIRI@UTCN</title>
-  <link rel="stylesheet" href="/style.css?v=3" />
+  <link rel="stylesheet" href="/style.css?v=5" />
 </head>
 <body>
 
 <!-- ── Nav ──────────────────────────────────────────────── -->
 <nav class="nav">
   <a class="nav-brand" href="/">
-    <div class="nav-logo">AI</div>
-    <span class="nav-title">AIRI@UTCN</span>
+    <img src="/assets/utcn-logo.png" class="nav-logo-utcn" alt="Universitatea Tehnică din Cluj-Napoca" />
+    <div class="nav-brand-sep"></div>
+    <img src="/assets/airi-logo.svg" class="nav-logo-airi" alt="AIRI@UTCN" />
+    <span class="nav-title" data-i18n="navTitle">Revista Presei</span>
   </a>
-
 
   <div class="nav-actions">
     <button class="btn btn-pill" id="btn-search">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
       </svg>
-      Caută
+      <span data-i18n="btnSearch">Caută</span>
     </button>
     <button class="btn btn-pill" id="btn-collect">
       <svg id="collect-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
       </svg>
-      Colectează
+      <span data-i18n="btnCollect">Colectează</span>
     </button>
     <button class="btn btn-pill" id="btn-show-import">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 5v14M5 12h14"/>
       </svg>
-      Import URL
+      <span data-i18n="btnImport">Import URL</span>
     </button>
     <button class="btn btn-pill" id="btn-export-pdf">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/>
       </svg>
-      Export PDF
+      <span data-i18n="btnExportPdf">Export PDF</span>
     </button>
     <a class="btn btn-pill" href="/graph.html">
-      Graf
+      <span data-i18n="btnGraph">Graf</span>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="ro">RO</button>
+      <span class="lang-sep-v">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
   </div>
 </nav>
 
 <!-- ── Hero ─────────────────────────────────────────────── -->
 <div class="hero">
-  <p class="hero-eyebrow">Revista Presei</p>
+  <p class="hero-eyebrow" data-i18n="heroEyebrow">Revista Presei</p>
   <h1 class="hero-date" id="hero-date"></h1>
   <div class="hero-meta">
-    <span>Oficiul de Imagine și Relații Publice</span>
+    <span data-i18n="metaOffice">Oficiul de Imagine și Relații Publice</span>
     <span class="hero-meta-dot"></span>
-    <span>Universitatea Tehnică din Cluj-Napoca</span>
+    <span data-i18n="metaUniv">Universitatea Tehnică din Cluj-Napoca</span>
     <span class="hero-meta-dot"></span>
     <span id="hero-count" style="color:var(--accent);font-weight:500"></span>
   </div>
@@ -69,27 +75,28 @@
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
   <div class="segment-ctrl" id="period-tabs">
-    <button class="period-tab active" data-period="day">Zilnic</button>
-    <button class="period-tab" data-period="week">Săptămânal</button>
-    <button class="period-tab" data-period="month">Lunar</button>
+    <button class="period-tab active" data-period="day" data-i18n="tabDay">Zilnic</button>
+    <button class="period-tab" data-period="week" data-i18n="tabWeek">Săptămânal</button>
+    <button class="period-tab" data-period="month" data-i18n="tabMonth">Lunar</button>
+    <button class="period-tab" data-period="all" data-i18n="tabAll">Total</button>
   </div>
   <button class="filter-arrow" id="btn-next" aria-label="Următor">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
   </button>
   <div class="filter-sep"></div>
-  <button class="filter-today" id="btn-today">Azi</button>
+  <button class="filter-today" id="btn-today" data-i18n="btnToday">Azi</button>
 </div>
 
 <!-- ── Import URL panel ─────────────────────────────────── -->
 <div id="import-panel" style="display:none;max-width:calc(1080px - 64px);margin:0 auto 16px;padding:0 32px">
   <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow-sm)">
-    <p style="font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Import articol după URL</p>
+    <p data-i18n="importLabel" style="font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Import articol după URL</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <input id="import-url" type="url" placeholder="https://www.stiridecluj.ro/educatie/..."
         style="flex:1;min-width:260px;font-family:var(--font-b);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--r-pill);outline:none;color:var(--text-1)" />
-      <input id="import-source" type="text" placeholder="Sursă (opțional)"
+      <input id="import-source" type="text" data-i18n-placeholder="importSourcePh" placeholder="Sursă (opțional)"
         style="width:180px;font-family:var(--font-b);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--r-pill);outline:none;color:var(--text-1)" />
-      <button class="btn btn-accent" id="btn-import-go" style="padding:7px 18px">Importă</button>
+      <button class="btn btn-accent" id="btn-import-go" data-i18n="importBtn" style="padding:7px 18px">Importă</button>
     </div>
     <p id="import-status" style="font-size:12px;margin-top:8px;color:var(--text-2);min-height:16px"></p>
   </div>
@@ -107,23 +114,127 @@
 <div class="container">
   <div class="table-header">
     <span>#</span>
-    <span>Sursă</span>
-    <span>Articole</span>
+    <span data-i18n="thSource">Sursă</span>
+    <span data-i18n="thArticles">Articole</span>
   </div>
   <div id="digest-list">
     <div class="state-card">
       <div class="state-icon pulse">📰</div>
-      <p class="state-title">Se încarcă…</p>
-      <p class="state-body">Vă rugăm așteptați.</p>
+      <p class="state-title" data-i18n="loading">Se încarcă…</p>
+      <p class="state-body" data-i18n="loadingBody">Vă rugăm așteptați.</p>
     </div>
   </div>
 </div>
 
 <script>
-/* ── Constants ───────────────────────────────────────────── */
-const DAYS   = ["duminică","luni","marți","miercuri","joi","vineri","sâmbătă"];
-const MONTHS = ["ianuarie","februarie","martie","aprilie","mai","iunie",
-                "iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+/* ── Translations ────────────────────────────────────────── */
+const TRANSLATIONS = {
+  ro: {
+    navTitle:       "Revista Presei",
+    heroEyebrow:    "Revista Presei",
+    metaOffice:     "Oficiul de Imagine și Relații Publice",
+    metaUniv:       "Universitatea Tehnică din Cluj-Napoca",
+    btnSearch:      "Caută",
+    btnCollect:     "Colectează",
+    btnImport:      "Import URL",
+    btnExportPdf:   "Export PDF",
+    btnGraph:       "Graf",
+    tabDay:         "Zilnic",
+    tabWeek:        "Săptămânal",
+    tabMonth:       "Lunar",
+    tabAll:         "Total",
+    btnToday:       "Azi",
+    thSource:       "Sursă",
+    thArticles:     "Articole",
+    importLabel:    "Import articol după URL",
+    importSourcePh: "Sursă (opțional)",
+    importBtn:      "Importă",
+    loading:        "Se încarcă…",
+    loadingBody:    "Vă rugăm așteptați.",
+    allArticles:    "Toate articolele",
+    emptyTitle:     "Niciun articol pentru această perioadă",
+    emptyBody:      "Colectarea automată rulează la fiecare 30 de minute.<br>Apăsați <strong>Colectează</strong> pentru o actualizare imediată.",
+    errTitle:       "Eroare",
+    errNet:         "Eroare de rețea",
+    errSearch:      "Eroare la căutare.",
+    importMissing:  "Introduceți un URL.",
+    importingMsg:   "Se importă...",
+    importDupe:     "Articol deja existent în bază.",
+    searching:      "Se caută…",
+    searchDoneFn:   (s, i, d) => `Căutare finalizată:\n• ${s} rezultate Google\n• ${i} articole noi importate\n• ${d} duplicate ignorate`,
+    importedFn:     (t, k) => `Importat: "${t}" · keywords: ${k}`,
+    importErrFn:    (e) => `Eroare: ${e}`,
+    countFn:        (n, s) => `${n} articol${n!==1?"e":""} din ${s} ${s!==1?"surse":"sursă"}`,
+    summaryFn:      (n, s, t) => `${n} articol${n!==1?"e":""} relevante din ${s} sursă${s!==1?"e":""} — actualizat la ${t}`,
+    artCountFn:     (n) => `${n} articol${n!==1?"e":""}`,
+    locale:         "ro-RO",
+    months: ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"],
+    days:   ["duminică","luni","marți","miercuri","joi","vineri","sâmbătă"],
+  },
+  en: {
+    navTitle:       "Press Review",
+    heroEyebrow:    "Press Review",
+    metaOffice:     "Office of Public Relations and Image",
+    metaUniv:       "Technical University of Cluj-Napoca",
+    btnSearch:      "Search",
+    btnCollect:     "Collect",
+    btnImport:      "Import URL",
+    btnExportPdf:   "Export PDF",
+    btnGraph:       "Graph",
+    tabDay:         "Daily",
+    tabWeek:        "Weekly",
+    tabMonth:       "Monthly",
+    tabAll:         "All",
+    btnToday:       "Today",
+    thSource:       "Source",
+    thArticles:     "Articles",
+    importLabel:    "Import article by URL",
+    importSourcePh: "Source (optional)",
+    importBtn:      "Import",
+    loading:        "Loading…",
+    loadingBody:    "Please wait.",
+    allArticles:    "All articles",
+    emptyTitle:     "No articles for this period",
+    emptyBody:      "Automatic collection runs every 30 minutes.<br>Press <strong>Collect</strong> for an immediate update.",
+    errTitle:       "Error",
+    errNet:         "Network error",
+    errSearch:      "Search error.",
+    importMissing:  "Please enter a URL.",
+    importingMsg:   "Importing...",
+    importDupe:     "Article already exists in database.",
+    searching:      "Searching…",
+    searchDoneFn:   (s, i, d) => `Search complete:\n• ${s} Google results\n• ${i} new articles imported\n• ${d} duplicates ignored`,
+    importedFn:     (t, k) => `Imported: "${t}" · keywords: ${k}`,
+    importErrFn:    (e) => `Error: ${e}`,
+    countFn:        (n, s) => `${n} article${n!==1?"s":""} from ${s} source${s!==1?"s":""}`,
+    summaryFn:      (n, s, t) => `${n} relevant article${n!==1?"s":""} from ${s} source${s!==1?"s":""} — updated at ${t}`,
+    artCountFn:     (n) => `${n} article${n!==1?"s":""}`,
+    locale:         "en-US",
+    months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+    days:   ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+  },
+};
+
+let _lang = localStorage.getItem("pressreview_lang") || "ro";
+const T = () => TRANSLATIONS[_lang];
+
+function applyLang() {
+  document.documentElement.lang = _lang;
+  document.querySelectorAll(".lang-btn").forEach(b =>
+    b.classList.toggle("active", b.dataset.lang === _lang)
+  );
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = T()[el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const v = T()[el.dataset.i18nPlaceholder];
+    if (v !== undefined) el.placeholder = v;
+  });
+  // Re-render dynamic content
+  updateHeroDisplay();
+  if (_lastDigestData) renderDigest(_lastDigestData);
+}
 
 /* ── Date helpers ────────────────────────────────────────── */
 function todayISO() { return new Date().toISOString().slice(0, 10); }
@@ -151,44 +262,24 @@ function datePlusDays(y, m, d, delta) {
   return [dt.getFullYear(), dt.getMonth()+1, dt.getDate()];
 }
 
-function navLabel(iso, period) {
-  const [y, m, d] = iso.split("-").map(Number);
-  if (period === "month") return `${MONTHS[m-1]} ${y}`;
-  if (period === "week") {
-    const dt = new Date(y, m-1, d);
-    const dow = dt.getDay();
-    const daysFromMon = dow === 0 ? 6 : dow - 1;
-    const mon = new Date(y, m-1, d - daysFromMon);
-    const sun = new Date(y, m-1, d - daysFromMon + 6);
-    const sm = mon.getMonth(), em = sun.getMonth();
-    const sy2 = mon.getFullYear(), ey2 = sun.getFullYear();
-    if (sy2 !== ey2) return `${mon.getDate()} ${MONTHS[sm]} ${sy2} – ${sun.getDate()} ${MONTHS[em]} ${ey2}`;
-    if (sm !== em)   return `${mon.getDate()} ${MONTHS[sm]} – ${sun.getDate()} ${MONTHS[em]} ${sy2}`;
-    return `${mon.getDate()} – ${sun.getDate()} ${MONTHS[em]} ${sy2}`;
-  }
-  // day
-  const dt = new Date(y, m-1, d);
-  return `${DAYS[dt.getDay()]}, ${d} ${MONTHS[m-1]} ${y}`;
-}
-
-function formatDateRo(iso) {
+function formatDate(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   const dt = new Date(y, m - 1, d);
   return {
-    day:  DAYS[dt.getDay()],
-    date: `${d} ${MONTHS[m - 1]}`,
+    day:  T().days[dt.getDay()],
+    date: `${d} ${T().months[m - 1]}`,
     year: String(y),
-    full: `${DAYS[dt.getDay()]}, ${d} ${MONTHS[m - 1]} ${y}`,
+    full: `${T().days[dt.getDay()]}, ${d} ${T().months[m - 1]} ${y}`,
   };
 }
 
-function formatRangeRo(startISO, endISO, period) {
+function formatRange(startISO, endISO, period) {
   const [sy, sm, sd] = startISO.split("-").map(Number);
   const [ey, em, ed] = endISO.split("-").map(Number);
-  if (period === "month") return { label: `${MONTHS[sm - 1]} ${sy}`, year: String(sy) };
+  if (period === "month") return { label: `${T().months[sm - 1]} ${sy}`, year: String(sy) };
   const sameMonth = sm === em, sameYear = sy === ey;
-  const startStr = sameMonth ? String(sd) : `${sd} ${MONTHS[sm - 1]}`;
-  const endStr   = `${ed} ${MONTHS[em - 1]}`;
+  const startStr = sameMonth ? String(sd) : `${sd} ${T().months[sm - 1]}`;
+  const endStr   = `${ed} ${T().months[em - 1]}`;
   const yearStr  = sameYear ? String(sy) : `${sy} – ${ey}`;
   return { label: `${startStr} – ${endStr}`, year: yearStr };
 }
@@ -210,54 +301,70 @@ function sourceColor(name) {
   return colors[Math.abs(h) % colors.length];
 }
 
-/* ── Update navigation state ─────────────────────────────── */
+/* ── Navigation state ────────────────────────────────────── */
 function updateNavLabel() {
-  // Disable next arrow when at current period
-  const nextBtn = document.getElementById("btn-next");
-  nextBtn.disabled = nextISO(_currentISO, _currentPeriod) > todayISO();
+  const isAll = _currentPeriod === "all";
+  document.getElementById("btn-prev").style.visibility  = isAll ? "hidden" : "";
+  document.getElementById("btn-next").style.visibility  = isAll ? "hidden" : "";
+  document.getElementById("btn-today").style.visibility = isAll ? "hidden" : "";
+  if (!isAll) {
+    document.getElementById("btn-next").disabled = nextISO(_currentISO, _currentPeriod) > todayISO();
+  }
+}
+
+function updateHeroDisplay() {
+  if (!_currentISO) return;
+  if (_currentPeriod === "day") {
+    const d = formatDate(_currentISO);
+    document.getElementById("hero-date").innerHTML = `${d.day}, ${d.date} <span>${d.year}</span>`;
+  } else if (_currentPeriod === "all") {
+    document.getElementById("hero-date").innerHTML = T().allArticles;
+  } else if (_lastDigestData) {
+    const { label, year } = formatRange(_lastDigestData.date_start, _lastDigestData.date_end, _currentPeriod);
+    document.getElementById("hero-date").innerHTML = `${label} <span>${year}</span>`;
+  }
 }
 
 /* ── Render ──────────────────────────────────────────────── */
+let _lastDigestData = null;
+
 function renderDigest(data) {
-  const list = document.getElementById("digest-list");
-  const strip = document.getElementById("summary-strip");
+  _lastDigestData = data;
+  const list    = document.getElementById("digest-list");
+  const strip   = document.getElementById("summary-strip");
   const countEl = document.getElementById("hero-count");
 
   if (!data.entries || data.entries.length === 0) {
     list.innerHTML = `
       <div class="state-card">
         <div class="state-icon">🔍</div>
-        <p class="state-title">Niciun articol pentru această perioadă</p>
-        <p class="state-body">
-          Colectarea automată rulează la fiecare 30 de minute.<br>
-          Apăsați <strong>Colectează</strong> pentru o actualizare imediată.
-        </p>
+        <p class="state-title">${T().emptyTitle}</p>
+        <p class="state-body">${T().emptyBody}</p>
       </div>`;
     strip.style.display = "none";
     countEl.textContent = "";
     return;
   }
 
-  const total = data.total_articles;
+  const total   = data.total_articles;
   const sources = data.entries.length;
-  countEl.textContent = `${total} articol${total !== 1 ? "e" : ""} din ${sources} ${sources !== 1 ? "surse" : "sursă"}`;
+  countEl.textContent = T().countFn(total, sources);
 
   const genTime = data.generated_at
-    ? new Date(data.generated_at).toLocaleTimeString("ro-RO", { hour:"2-digit", minute:"2-digit" })
+    ? new Date(data.generated_at).toLocaleTimeString(T().locale, { hour:"2-digit", minute:"2-digit" })
     : "";
-  document.getElementById("summary-text").textContent =
-    `${total} articol${total!==1?"e":""} relevante din ${sources} sursă${sources!==1?"e":""} — actualizat la ${genTime}`;
+  document.getElementById("summary-text").textContent = T().summaryFn(total, sources, genTime);
   strip.style.display = "flex";
 
   list.innerHTML = data.entries.map((entry, idx) => {
-    const color = sourceColor(entry.source);
+    const color    = sourceColor(entry.source);
     const initials = sourceInitials(entry.source);
-    const count = entry.articles.length;
+    const count    = entry.articles.length;
 
     const showDate = data.period !== "day";
     const articleItems = entry.articles.map(art => {
       const dateEl = showDate && art.published_date
-        ? `<p class="article-date">${formatDateRo(art.published_date.slice(0,10)).full}</p>`
+        ? `<p class="article-date">${formatDate(art.published_date.slice(0,10)).full}</p>`
         : "";
       const titleEl = art.url
         ? `<a class="article-link" href="${esc(art.url)}" target="_blank" rel="noopener">${esc(art.title)}</a>`
@@ -267,7 +374,7 @@ function renderDigest(data) {
         : "";
       const kwTags = (art.matched_keywords || []).map(k => `<span class="tag tag-kw">${esc(k)}</span>`).join("");
       const pTags  = (art.matched_persons  || []).map(p => `<span class="tag tag-person">${esc(p)}</span>`).join("");
-      const tags = (kwTags || pTags) ? `<div class="tags">${kwTags}${pTags}</div>` : "";
+      const tags   = (kwTags || pTags) ? `<div class="tags">${kwTags}${pTags}</div>` : "";
       return `<div class="article-item">${dateEl}${titleEl}${snippet}${tags}</div>`;
     }).join("");
 
@@ -278,7 +385,7 @@ function renderDigest(data) {
           <div class="source-icon" style="background:${color}">${esc(initials)}</div>
           <div>
             <div class="source-name">${esc(entry.source)}</div>
-            <div class="source-count">${count} articol${count !== 1 ? "e" : ""}</div>
+            <div class="source-count">${T().artCountFn(count)}</div>
           </div>
         </div>
         <div class="cell-content">${articleItems}</div>
@@ -296,38 +403,36 @@ async function loadDigest(iso, period) {
   updateNavLabel();
 
   const list = document.getElementById("digest-list");
-  list.innerHTML = `<div class="state-card"><div class="state-icon pulse">📰</div><p class="state-title">Se încarcă…</p></div>`;
+  list.innerHTML = `<div class="state-card"><div class="state-icon pulse">📰</div><p class="state-title">${T().loading}</p></div>`;
   document.getElementById("summary-strip").style.display = "none";
   document.getElementById("hero-count").textContent = "";
 
-  if (period === "day") {
-    const d = formatDateRo(iso);
-    document.getElementById("hero-date").innerHTML = `${d.day}, ${d.date} <span>${d.year}</span>`;
-  } else {
-    document.getElementById("hero-date").innerHTML = `<span style="color:var(--text-3)">Se încarcă…</span>`;
+  updateHeroDisplay();
+  if (period !== "day" && period !== "all") {
+    document.getElementById("hero-date").innerHTML = `<span style="color:var(--text-3)">${T().loading}</span>`;
   }
 
   try {
     const r = await fetch(`/api/digest?date=${iso}&period=${period}`);
     if (!r.ok) {
       const e = await r.json().catch(() => ({}));
-      list.innerHTML = `<div class="state-card"><p class="state-title">Eroare</p><p class="state-body">${esc(e.detail || `HTTP ${r.status}`)}</p></div>`;
+      list.innerHTML = `<div class="state-card"><p class="state-title">${T().errTitle}</p><p class="state-body">${esc(e.detail || `HTTP ${r.status}`)}</p></div>`;
       return;
     }
     const data = await r.json();
-    if (period !== "day") {
-      const { label, year } = formatRangeRo(data.date_start, data.date_end, period);
+    if (period !== "day" && period !== "all") {
+      const { label, year } = formatRange(data.date_start, data.date_end, period);
       document.getElementById("hero-date").innerHTML = `${label} <span>${year}</span>`;
     }
     renderDigest(data);
   } catch (err) {
-    list.innerHTML = `<div class="state-card"><p class="state-title">Eroare de rețea</p><p class="state-body">${esc(String(err))}</p></div>`;
+    list.innerHTML = `<div class="state-card"><p class="state-title">${T().errNet}</p><p class="state-body">${esc(String(err))}</p></div>`;
   }
 }
 
 /* ── Collect ─────────────────────────────────────────────── */
 async function triggerCollect() {
-  const btn = document.getElementById("btn-collect");
+  const btn  = document.getElementById("btn-collect");
   const icon = document.getElementById("collect-icon");
   btn.disabled = true;
   icon.parentElement.classList.add("btn-collect-spin");
@@ -345,6 +450,15 @@ async function triggerCollect() {
 
 /* ── Init ────────────────────────────────────────────────── */
 (function () {
+  // Language toggle
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      _lang = btn.dataset.lang;
+      localStorage.setItem("pressreview_lang", _lang);
+      applyLang();
+    });
+  });
+
   // Period tabs
   document.querySelectorAll(".period-tab").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -370,23 +484,24 @@ async function triggerCollect() {
   document.getElementById("btn-collect").addEventListener("click", triggerCollect);
 
   document.getElementById("btn-search").addEventListener("click", async () => {
-    const btn = document.getElementById("btn-search");
-    btn.disabled = true;
-    btn.textContent = "Se caută…";
+    const btn     = document.getElementById("btn-search");
+    const btnSpan = btn.querySelector("[data-i18n]");
+    btn.disabled  = true;
+    btnSpan.textContent = T().searching;
     try {
       const r = await fetch("/api/search", { method: "POST" });
       const d = await r.json();
       if (!r.ok) {
-        alert(d.detail || "Eroare la căutare.");
+        alert(d.detail || T().errSearch);
       } else {
-        alert(`Căutare finalizată:\n• ${d.searched} rezultate Google\n• ${d.imported} articole noi importate\n• ${d.duplicate} duplicate ignorate`);
+        alert(T().searchDoneFn(d.searched, d.imported, d.duplicate));
         setTimeout(() => loadDigest(_currentISO, _currentPeriod), 600);
       }
     } catch (err) {
-      alert("Eroare: " + err);
+      alert(T().importErrFn(err));
     } finally {
       btn.disabled = false;
-      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Caută`;
+      btnSpan.textContent = T().btnSearch;
     }
   });
 
@@ -400,8 +515,8 @@ async function triggerCollect() {
     const url    = document.getElementById("import-url").value.trim();
     const source = document.getElementById("import-source").value.trim();
     const status = document.getElementById("import-status");
-    if (!url) { status.textContent = "Introduceți un URL."; return; }
-    status.textContent = "Se importă...";
+    if (!url) { status.textContent = T().importMissing; return; }
+    status.textContent = T().importingMsg;
     document.getElementById("btn-import-go").disabled = true;
     try {
       const r = await fetch("/api/import", {
@@ -412,14 +527,14 @@ async function triggerCollect() {
       const d = await r.json();
       if (!r.ok) {
         status.style.color = "var(--accent)";
-        status.textContent = `Eroare: ${d.detail || r.status}`;
+        status.textContent = T().importErrFn(d.detail || r.status);
       } else if (d.status === "duplicate") {
         status.style.color = "var(--text-2)";
-        status.textContent = "Articol deja existent în bază.";
+        status.textContent = T().importDupe;
       } else {
         status.style.color = "var(--green)";
         const kws = (d.matched_keywords || []).join(", ") || "—";
-        status.textContent = `Importat: "${(d.title||"").slice(0,60)}" · keywords: ${kws}`;
+        status.textContent = T().importedFn((d.title||"").slice(0,60), kws);
         document.getElementById("import-url").value = "";
         const iso = d.published_date ? d.published_date.slice(0,10) : _currentISO;
         setTimeout(() => loadDigest(iso, _currentPeriod), 800);
@@ -434,14 +549,16 @@ async function triggerCollect() {
 
   document.getElementById("btn-export-pdf").addEventListener("click", () => {
     const url = `/api/report?date=${_currentISO}&period=${_currentPeriod}`;
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `revista-presei-${_currentISO}-${_currentPeriod}.pdf`;
+    const a   = document.createElement("a");
+    a.href     = url;
+    a.download = `press-review-${_currentISO}-${_currentPeriod}.pdf`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   });
 
+  // Apply saved language and load
+  applyLang();
   loadDigest(todayISO(), "day");
 })();
 </script>

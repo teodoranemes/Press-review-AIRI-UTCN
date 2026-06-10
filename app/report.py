@@ -17,6 +17,12 @@ _RO_MONTHS = [
 
 def _period_label(date_start: str, date_end: str, period: str) -> str:
     """Human-readable Romanian period label for the report header."""
+    if period == "all":
+        if date_start and date_end and date_start != date_end:
+            ys, ms, ds = (int(x) for x in date_start.split("-"))
+            ye, me, de = (int(x) for x in date_end.split("-"))
+            return f"{ds} {_RO_MONTHS[ms]} {ys} \u2013 {de} {_RO_MONTHS[me]} {ye}"
+        return "Toate articolele"
     y, m, d = (int(x) for x in date_start.split("-"))
     if period == "day":
         return f"{d} {_RO_MONTHS[m]} {y}"
