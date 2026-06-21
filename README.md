@@ -1,3 +1,12 @@
+---
+title: AIRI UTCN Press Review
+emoji: 📰
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # AIRI@UTCN Press Review
 
 Automated press review platform for the Artificial Intelligence Research
