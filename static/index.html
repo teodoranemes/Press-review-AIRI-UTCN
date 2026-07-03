@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Revista Presei — AIRI@UTCN</title>
-  <link rel="stylesheet" href="/style.css?v=5" />
+  <link rel="stylesheet" href="/style.css?v=6" />
 </head>
 <body>
 
@@ -35,6 +35,12 @@
         <path d="M12 5v14M5 12h14"/>
       </svg>
       <span data-i18n="btnImport">Import URL</span>
+    </button>
+    <button class="btn btn-pill" id="btn-show-keywords">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="1.5"/><circle cx="7" cy="12" r="1.5"/><circle cx="17" cy="12" r="1.5"/>
+      </svg>
+      <span data-i18n="btnKeywords">Cuvinte cheie</span>
     </button>
     <button class="btn btn-pill" id="btn-export-pdf">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -85,6 +91,36 @@
   </button>
   <div class="filter-sep"></div>
   <button class="filter-today" id="btn-today" data-i18n="btnToday">Azi</button>
+</div>
+
+<!-- ── Keywords admin panel ─────────────────────────────── -->
+<div id="keywords-panel" style="display:none;max-width:calc(1080px - 64px);margin:0 auto 16px;padding:0 32px">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;box-shadow:var(--shadow-sm)">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <p data-i18n="kwTitle" style="font-size:12px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin:0">Cuvinte cheie de căutare</p>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span id="kw-status" style="font-size:12px;color:var(--text-2);min-width:80px;text-align:right"></span>
+        <button class="btn btn-accent" id="btn-kw-save" data-i18n="kwSave" style="padding:6px 16px">Salvează</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div class="kw-section">
+        <label class="kw-label" data-i18n="kwInstitute">Institut</label>
+        <div class="kw-tag-list" id="kw-tags-institute"></div>
+        <input class="kw-input" id="kw-input-institute" data-category="institute" data-i18n-placeholder="kwAdd" placeholder="Adaugă..." />
+      </div>
+      <div class="kw-section">
+        <label class="kw-label" data-i18n="kwUniversity">Universitate</label>
+        <div class="kw-tag-list" id="kw-tags-university"></div>
+        <input class="kw-input" id="kw-input-university" data-category="university" data-i18n-placeholder="kwAdd" placeholder="Adaugă..." />
+      </div>
+      <div class="kw-section">
+        <label class="kw-label" data-i18n="kwResearchUnits">Unități de cercetare</label>
+        <div class="kw-tag-list" id="kw-tags-research_units"></div>
+        <input class="kw-input" id="kw-input-research_units" data-category="research_units" data-i18n-placeholder="kwAdd" placeholder="Adaugă..." />
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ── Import URL panel ─────────────────────────────────── -->
@@ -160,6 +196,16 @@ const TRANSLATIONS = {
     importMissing:  "Introduceți un URL.",
     importingMsg:   "Se importă...",
     importDupe:     "Articol deja existent în bază.",
+    btnKeywords:    "Cuvinte cheie",
+    kwTitle:        "Cuvinte cheie de căutare",
+    kwInstitute:    "Institut",
+    kwUniversity:   "Universitate",
+    kwResearchUnits:"Unități de cercetare",
+    kwSave:         "Salvează",
+    kwSaved:        "Salvat!",
+    kwAdd:          "Adaugă...",
+    kwErrLoad:      "Eroare la încărcare.",
+    kwErrSave:      "Eroare la salvare.",
     searching:      "Se caută…",
     searchDoneFn:   (s, i, d) => `Căutare finalizată:\n• ${s} rezultate Google\n• ${i} articole noi importate\n• ${d} duplicate ignorate`,
     importedFn:     (t, k) => `Importat: "${t}" · keywords: ${k}`,
@@ -202,6 +248,16 @@ const TRANSLATIONS = {
     importMissing:  "Please enter a URL.",
     importingMsg:   "Importing...",
     importDupe:     "Article already exists in database.",
+    btnKeywords:    "Keywords",
+    kwTitle:        "Search keywords",
+    kwInstitute:    "Institute",
+    kwUniversity:   "University",
+    kwResearchUnits:"Research units",
+    kwSave:         "Save",
+    kwSaved:        "Saved!",
+    kwAdd:          "Add...",
+    kwErrLoad:      "Load error.",
+    kwErrSave:      "Save error.",
     searching:      "Searching…",
     searchDoneFn:   (s, i, d) => `Search complete:\n• ${s} Google results\n• ${i} new articles imported\n• ${d} duplicates ignored`,
     importedFn:     (t, k) => `Imported: "${t}" · keywords: ${k}`,
@@ -448,6 +504,85 @@ async function triggerCollect() {
   }
 }
 
+/* ── Keywords admin ──────────────────────────────────────── */
+let _kwData = { institute: [], university: [], research_units: [] };
+
+function renderKwTags(category) {
+  const container = document.getElementById(`kw-tags-${category}`);
+  container.innerHTML = _kwData[category].map((kw, i) =>
+    `<span class="kw-tag">${esc(kw)}<button class="kw-tag-rm" data-cat="${category}" data-idx="${i}" aria-label="Șterge">×</button></span>`
+  ).join("");
+  container.querySelectorAll(".kw-tag-rm").forEach(btn => {
+    btn.addEventListener("click", () => {
+      _kwData[btn.dataset.cat].splice(Number(btn.dataset.idx), 1);
+      renderKwTags(btn.dataset.cat);
+    });
+  });
+}
+
+function renderAllKwTags() {
+  ["institute", "university", "research_units"].forEach(renderKwTags);
+}
+
+async function loadKeywords() {
+  const status = document.getElementById("kw-status");
+  status.textContent = "";
+  try {
+    const r = await fetch("/api/keywords");
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    _kwData = {
+      institute:      data.institute      || [],
+      university:     data.university     || [],
+      research_units: data.research_units || [],
+    };
+    renderAllKwTags();
+  } catch (err) {
+    status.style.color = "var(--accent)";
+    status.textContent = T().kwErrLoad;
+  }
+}
+
+async function saveKeywords() {
+  const btn    = document.getElementById("btn-kw-save");
+  const status = document.getElementById("kw-status");
+  btn.disabled = true;
+  status.textContent = "";
+  try {
+    const r = await fetch("/api/keywords", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(_kwData),
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    status.style.color = "var(--green)";
+    status.textContent = T().kwSaved;
+    setTimeout(() => { status.textContent = ""; }, 3000);
+  } catch (err) {
+    status.style.color = "var(--accent)";
+    status.textContent = T().kwErrSave;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function initKwInputs() {
+  ["institute", "university", "research_units"].forEach(cat => {
+    const input = document.getElementById(`kw-input-${cat}`);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === ",") {
+        e.preventDefault();
+        const val = input.value.trim().replace(/,$/, "");
+        if (val && !_kwData[cat].includes(val)) {
+          _kwData[cat].push(val);
+          renderKwTags(cat);
+        }
+        input.value = "";
+      }
+    });
+  });
+}
+
 /* ── Init ────────────────────────────────────────────────── */
 (function () {
   // Language toggle
@@ -510,6 +645,16 @@ async function triggerCollect() {
     const panel = document.getElementById("import-panel");
     panel.style.display = panel.style.display === "none" ? "block" : "none";
   });
+
+  // Keywords panel
+  initKwInputs();
+  document.getElementById("btn-show-keywords").addEventListener("click", () => {
+    const panel = document.getElementById("keywords-panel");
+    const isHidden = panel.style.display === "none";
+    panel.style.display = isHidden ? "block" : "none";
+    if (isHidden) loadKeywords();
+  });
+  document.getElementById("btn-kw-save").addEventListener("click", saveKeywords);
 
   document.getElementById("btn-import-go").addEventListener("click", async () => {
     const url    = document.getElementById("import-url").value.trim();
